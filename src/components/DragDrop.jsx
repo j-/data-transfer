@@ -53,13 +53,13 @@ export default class DragDrop extends Component {
 	render () {
 		const { dropped } = this.state;
 		const children = dropped.map((data, i) => (
-			<li key={ i }>
+			<li className="dt-list-item" key={ i }>
 				<DataTransfer data={ data } />
 			</li>
 		));
 		return (
 			<div className="drag-drop">
-				<ol>
+				<ol className="dt-list">
 					{ children }
 				</ol>
 			</div>

@@ -35,7 +35,13 @@ export default class DragDrop extends Component {
 					type: item.type,
 				})),
 			types: [...dt.types],
-			files: [...dt.files],
+			files: [...dt.files]
+				.map((file) => ({
+					lastModified: file.lastModified,
+					name: file.name,
+					size: file.size,
+					type: file.type,
+				})),
 		};
 		this.setState((state) => {
 			return {

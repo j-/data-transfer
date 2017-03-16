@@ -1,61 +1,35 @@
 import React from 'react';
+import JSONTree from 'react-json-tree';
 
-const ItemsList = ({ items }) => (
-	<div className="data-transfer-items">
-		<strong>Items</strong>
-		{ ' ' }
-		({ items.length })
-		<ol>
-			{
-				items.map((item, i) => (
-					<li key={ i }>
-						{ JSON.stringify(item) }
-					</li>
-				))
-			}
-		</ol>
-	</div>
-);
-
-const TypesList = ({ types }) => (
-	<div className="data-transfer-types">
-		<strong>Types</strong>
-		{ ' ' }
-		({ types.length })
-		<ol>
-			{
-				types.map((type, i) => (
-					<li key={ i }>
-						{ JSON.stringify(type) }
-					</li>
-				))
-			}
-		</ol>
-	</div>
-);
-
-const FilesList = ({ files }) => (
-	<div className="data-transfer-files">
-		<strong>Files</strong>
-		{ ' ' }
-		({ files.length })
-		<ol>
-			{
-				files.map((file, i) => (
-					<li key={ i }>
-						{ JSON.stringify(file) }
-					</li>
-				))
-			}
-		</ol>
-	</div>
-);
+const theme = {
+	scheme: 'monokai',
+	author: 'wimer hazenberg (http://www.monokai.nl)',
+	base00: '#272822',
+	base01: '#383830',
+	base02: '#49483e',
+	base03: '#75715e',
+	base04: '#a59f85',
+	base05: '#f8f8f2',
+	base06: '#f5f4f1',
+	base07: '#f9f8f5',
+	base08: '#f92672',
+	base09: '#fd971f',
+	base0A: '#f4bf75',
+	base0B: '#a6e22e',
+	base0C: '#a1efe4',
+	base0D: '#66d9ef',
+	base0E: '#ae81ff',
+	base0F: '#cc6633',
+};
 
 const DataTransfer = ({ data }) => (
 	<div className="data-transfer">
-		<ItemsList items={ data.items } />
-		<TypesList types={ data.types } />
-		<FilesList files={ data.files } />
+		<JSONTree
+			data={ data }
+			theme={ theme }
+			shouldExpandNode={ () => true }
+			hideRoot
+		/>
 	</div>
 );
 

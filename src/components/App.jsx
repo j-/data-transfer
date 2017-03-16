@@ -1,10 +1,10 @@
 import React from 'react';
-import DragDrop from './DragDrop';
+import DataTransferContainer from './DataTransferContainer';
 
 const App = () => (
 	<div>
 		<h1>Data Transfer</h1>
-		<DragDrop />
+		<DataTransferContainer />
 	</div>
 );
 

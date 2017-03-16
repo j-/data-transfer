@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import DataTransfer from './DataTransfer';
 
 export default class DragDrop extends Component {
@@ -6,9 +6,6 @@ export default class DragDrop extends Component {
 		super(props);
 		this.handleDragover = this.handleDragover.bind(this);
 		this.handleDrop = this.handleDrop.bind(this);
-		this.state = {
-			dropped: [],
-		};
 	}
 
 	componentDidMount () {
@@ -27,42 +24,14 @@ export default class DragDrop extends Component {
 
 	handleDrop (e) {
 		e.preventDefault();
-		const dt = e.dataTransfer;
-		const data = {
-			items: [...dt.items]
-				.map((item) => ({
-					kind: item.kind,
-					type: item.type,
-				})),
-			types: [...dt.types],
-			files: [...dt.files]
-				.map((file) => ({
-					lastModified: file.lastModified,
-					name: file.name,
-					size: file.size,
-					type: file.type,
-				})),
-		};
-		this.setState((state) => {
-			return {
-				dropped: state.dropped.concat(data),
-			};
-		});
+		this.props.onDataTransfer(e.dataTransfer);
 	}
 
 	render () {
-		const { dropped } = this.state;
-		const children = dropped.map((data, i) => (
-			<li className="dt-list-item" key={ i }>
-				<DataTransfer data={ data } />
-			</li>
-		));
-		return (
-			<div className="drag-drop">
-				<ol className="dt-list">
-					{ children }
-				</ol>
-			</div>
-		);
+		return null;
 	}
 }
+
+DragDrop.propTypes = {
+	onDataTransfer: PropTypes.func.isRequired,
+};

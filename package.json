@@ -18,5 +18,23 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject"
-  }
+  },
+  "description": "Inspect copy+paste and drag+drop data",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/data-transfer.git"
+  },
+  "keywords": [
+    "copy",
+    "paste",
+    "drag",
+    "drop"
+  ],
+  "author": "Jamie Hoeks <j@skeoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-/data-transfer/issues"
+  },
+  "homepage": "https://skeoh.com/data-transfer"
 }

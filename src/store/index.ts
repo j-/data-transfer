@@ -8,3 +8,7 @@ export interface ReducerState {
 export default combineReducers<ReducerState>({
 	dataTransfers: dataTransfers.default,
 });
+
+export const getDataTransfers = (state: ReducerState) => (
+	dataTransfers.getDataTransfers(state.dataTransfers)
+);

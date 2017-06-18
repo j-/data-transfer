@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Observable, Subscription } from 'rxjs';
+import { SimpleDataTransfer } from '../types';
 
 const { fromEvent, merge } = Observable;
 
@@ -15,7 +16,8 @@ const pasteData = pasteEvents.pluck<ClipboardEvent, DataTransfer>('clipboardData
 const dataTransfers = merge(dropData, pasteData);
 
 export interface Props {
-
+	addDataTransfer: (dt: DataTransfer) => void;
+	dataTransfers: SimpleDataTransfer[];
 }
 
 export default class DataTransfers extends React.Component<Props, void> {
@@ -23,10 +25,11 @@ export default class DataTransfers extends React.Component<Props, void> {
 	private dataTransfersSubscription: Subscription;
 
 	componentDidMount () {
+		const { addDataTransfer } = this.props;
 		this.dragAndDropEventsSubscription = dragAndDropEvents
 			.subscribe((e) => e.preventDefault());
 		this.dataTransfersSubscription = dataTransfers
-			.subscribe((dt) => console.log(dt));
+			.subscribe((dt) => addDataTransfer(dt));
 	}
 
 	componentWillUnmount () {
@@ -35,8 +38,18 @@ export default class DataTransfers extends React.Component<Props, void> {
 	}
 
 	render () {
+		const { dataTransfers } = this.props;
+		const children = dataTransfers.map((dt, i) => (
+			<div className="DataTransfers-item" key={i}>
+				<div className="DataTransfers-dt">
+					{JSON.stringify(dt, null, 2)}
+				</div>
+			</div>
+		));
 		return (
-			<div />
+			<div className="DataTransfers">
+				{children}
+			</div>
 		);
 	}
 }

@@ -16,3 +16,7 @@ export default (state: ReducerState = DEFAULT_STATE, action: Action): ReducerSta
 
 	return state;
 };
+
+export const getDataTransfers = (state: ReducerState): SimpleDataTransfer[] => (
+	state
+);

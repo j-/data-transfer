@@ -5,7 +5,7 @@ export interface SimpleDataTransfer {
 	}[];
 	types: string[];
 	files: {
-		lastModified: number;
+		lastModifiedDate: number;
 		name: string;
 		size: number;
 		type: string;

@@ -15,6 +15,7 @@
     "react-redux": "^5.0.5",
     "react-scripts-ts": "2.2.0",
     "redux": "^3.7.0",
+    "redux-devtools-extension": "^2.13.2",
     "rxjs": "^5.4.1"
   },
   "scripts": {

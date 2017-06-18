@@ -1,7 +1,7 @@
 import { Action } from 'redux';
-import { SimpleDataTransfer } from '../types';
+import { StoredDataTransfer } from '../types';
 
-const cloneDataTransfer = (dt: DataTransfer): SimpleDataTransfer => {
+const cloneDataTransfer = (dt: DataTransfer): StoredDataTransfer => {
 	return {
 		files: Array.from(dt.files, (file: File) => ({
 			lastModifiedDate: file.lastModifiedDate,
@@ -12,6 +12,7 @@ const cloneDataTransfer = (dt: DataTransfer): SimpleDataTransfer => {
 		items: Array.from(dt.items, (item) => ({
 			kind: item.kind,
 			type: item.type,
+			_data: dt.getData(item.type),
 		})),
 		types: Array.from(dt.types)
 	};
@@ -19,7 +20,7 @@ const cloneDataTransfer = (dt: DataTransfer): SimpleDataTransfer => {
 
 export interface AddDataTransferAction extends Action {
 	type: 'ADD_DATA_TRANSER';
-	payload: SimpleDataTransfer;
+	payload: StoredDataTransfer;
 }
 
 export const isAddDataTransferAction = (action: Action): action is AddDataTransferAction => (

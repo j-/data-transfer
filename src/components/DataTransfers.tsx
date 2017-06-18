@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Observable, Subscription } from 'rxjs';
-import { SimpleDataTransfer } from '../types';
+import { StoredDataTransfer } from '../types';
+import DataTransfer from './DataTransfer';
 
 const { fromEvent, merge } = Observable;
 
@@ -17,7 +18,7 @@ const dataTransfers = merge(dropData, pasteData);
 
 export interface Props {
 	addDataTransfer: (dt: DataTransfer) => void;
-	dataTransfers: SimpleDataTransfer[];
+	dataTransfers: StoredDataTransfer[];
 }
 
 export default class DataTransfers extends React.Component<Props, void> {
@@ -41,9 +42,7 @@ export default class DataTransfers extends React.Component<Props, void> {
 		const { dataTransfers } = this.props;
 		const children = dataTransfers.map((dt, i) => (
 			<div className="DataTransfers-item" key={i}>
-				<div className="DataTransfers-dt">
-					{JSON.stringify(dt, null, 2)}
-				</div>
+				<DataTransfer dataTransfer={dt} />
 			</div>
 		));
 		return (

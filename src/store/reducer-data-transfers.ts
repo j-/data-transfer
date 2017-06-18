@@ -1,8 +1,8 @@
 import { Action } from 'redux';
-import { SimpleDataTransfer } from '../types';
+import { StoredDataTransfer } from '../types';
 import { isAddDataTransferAction } from './actions';
 
-export type ReducerState = SimpleDataTransfer[];
+export type ReducerState = StoredDataTransfer[];
 
 const DEFAULT_STATE: ReducerState = [];
 
@@ -17,6 +17,6 @@ export default (state: ReducerState = DEFAULT_STATE, action: Action): ReducerSta
 	return state;
 };
 
-export const getDataTransfers = (state: ReducerState): SimpleDataTransfer[] => (
+export const getDataTransfers = (state: ReducerState): StoredDataTransfer[] => (
 	state
 );

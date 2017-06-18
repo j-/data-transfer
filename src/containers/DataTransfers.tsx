@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { ReducerState, getDataTransfers } from '../store';
-import { SimpleDataTransfer } from '../types';
+import { StoredDataTransfer } from '../types';
 import { addDataTransfer } from '../store/actions';
 import DataTransfers from '../components/DataTransfers';
 
 interface StateProps {
-	dataTransfers: SimpleDataTransfer[];
+	dataTransfers: StoredDataTransfer[];
 }
 
 interface DispatchProps {

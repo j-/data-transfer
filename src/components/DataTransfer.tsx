@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Observable, Subscription } from 'rxjs';
 import Data from './Data';
+import './DataTransfer.css';
 
 const { fromEvent, merge } = Observable;
 
@@ -41,14 +42,14 @@ export default class DataTransfer extends React.Component<Props> {
 
 	render () {
 		const children = this.props.data.map(([type, data]) => (
-			<li key={type}>
+			<li key={type} className="DataTransfer-list-item">
 				<Data type={type} data={data} />
 			</li>
 		));
 		return (
 			<div className="DataTransfer">
 				<h2>Drag+drop or copy+paste data onto this page</h2>
-				<ul>
+				<ul className="DataTransfer-list">
 					{children}
 				</ul>
 			</div>

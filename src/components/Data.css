@@ -4,12 +4,21 @@
 
 .Data-type {
 	font-weight: bold;
+	border: 1px solid #222;
+	background-color: #333;
+	color: #eee;
+	padding: 0.25em 0.5em;
 }
 
 .Data-data {
 	min-height: 2em;
 	white-space: pre-wrap;
 	overflow: auto;
+	border: 1px solid #ccc;
+	background-color: #fafafa;
+	padding: 0.5em;
+	line-height: 1em;
+	box-sizing: border-box;
 }
 
 .Data-empty {

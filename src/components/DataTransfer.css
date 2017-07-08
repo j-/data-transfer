@@ -1,3 +1,9 @@
+.DataTransfer-list {
+	margin: 1em 0;
+	padding: 0;
+	list-style: none;
+}
+
 .DataTransfer-list-item {
 	margin-bottom: 1em;
 }

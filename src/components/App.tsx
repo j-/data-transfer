@@ -1,6 +1,7 @@
 import * as React from 'react';
 import DataTransfer from '../containers/DataTransfer';
 import MobilePaste from './MobilePaste';
+import './App.css';
 
 const App = () => (
 	<div className="App">

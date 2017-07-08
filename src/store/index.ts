@@ -1,14 +1,17 @@
 import { combineReducers } from 'redux';
-import * as dataTransfers from './reducer-data-transfers';
+import * as dataTransfer from './reducer-data-transfer';
+import * as data from './reducer-data';
 
 export interface ReducerState {
-	dataTransfers: dataTransfers.ReducerState;
+	dataTransfer: dataTransfer.ReducerState;
+	data: data.ReducerState;
 }
 
 export default combineReducers<ReducerState>({
-	dataTransfers: dataTransfers.default,
+	dataTransfer: dataTransfer.default,
+	data: data.default,
 });
 
-export const getDataTransfers = (state: ReducerState) => (
-	dataTransfers.getDataTransfers(state.dataTransfers)
+export const getData = (state: ReducerState) => (
+	data.getData(state.data)
 );

@@ -33,3 +33,16 @@
 .Data-empty {
 	color: #888;
 }
+
+.Data-copy {
+	-webkit-appearance: none;
+	border: none;
+	background: transparent;
+	color: inherit;
+	font-size: 80%;
+	margin: 0;
+	margin-right: 0.25em;
+	padding: 0;
+	color: #ddd;
+	cursor: pointer;
+}

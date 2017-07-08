@@ -1,6 +1,7 @@
 import * as React from 'react';
-import DataTransfer from '../containers/DataTransfer';
 import MobilePaste from './MobilePaste';
+import Effects from '../containers/Effects';
+import DataTransfer from '../containers/DataTransfer';
 import './App.css';
 
 const App = () => (
@@ -8,6 +9,7 @@ const App = () => (
 		<h1>Data transfer</h1>
 		<p>Copy+paste or click+drag into this window.</p>
 		<MobilePaste />
+		<Effects />
 		<DataTransfer />
 	</div>
 );

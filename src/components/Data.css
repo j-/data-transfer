@@ -1,0 +1,13 @@
+.Data {
+	font-family: monospace;
+}
+
+.Data-type {
+	font-weight: bold;
+}
+
+.Data-data {
+	min-height: 2em;
+	white-space: pre-wrap;
+	overflow: auto;
+}

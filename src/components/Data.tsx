@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './Data.css';
 
 export interface Props {
 	type: string;
@@ -7,10 +8,11 @@ export interface Props {
 
 export default class Data extends React.Component<Props> {
 	render () {
+		const { type, data } = this.props;
 		return (
-			<div>
-				<strong>{this.props.type}</strong><br />
-				<pre>{this.props.data}</pre>
+			<div className="Data">
+				<div className="Data-type">{type}</div>
+				<div className="Data-data">{data}</div>
 			</div>
 		);
 	}

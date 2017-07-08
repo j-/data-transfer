@@ -30,7 +30,7 @@ export default class Data extends React.Component<Props> {
 		return (
 			<div className="Data">
 				<div className="Data-type">
-					<Copy data={data} />
+					{data && <Copy data={data} />}
 					{type}
 				</div>
 				<div className="Data-data">

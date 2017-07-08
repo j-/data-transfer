@@ -48,7 +48,6 @@ export default class DataTransfer extends React.Component<Props> {
 		));
 		return (
 			<div className="DataTransfer">
-				<h2>Drag+drop or copy+paste data onto this page</h2>
 				<ul className="DataTransfer-list">
 					{children}
 				</ul>

@@ -11,3 +11,7 @@
 	white-space: pre-wrap;
 	overflow: auto;
 }
+
+.Data-empty {
+	color: #888;
+}

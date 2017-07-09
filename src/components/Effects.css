@@ -1,21 +1,25 @@
 .Effects {
-	display: flex;
-	flex-direction: column;
+	display: tables;
 	font-family: monospace;
 	margin: 1em 0;
+	border-collapse: collapse;
 }
 
 .Effects-effect {
-	flex: 1;
-	display: flex;
-	flex-direction: row;
+	display: table-row;
 }
 
 .Effects-label,
 .Effects-value {
-	flex: 1;
+	display: table-cell;
+	padding: 0.5em;
+	border: 1px solid #ccc;
 }
 
 .Effects-label {
 	font-weight: bold;
+}
+
+.Effects-value {
+	width: 100%;
 }

@@ -22,6 +22,7 @@ const Copy = ({ data }: { data: string }) => (
 	<button
 		type="button"
 		className="Data-button"
+		title="Copy this data to clipboard"
 		onClick={() => copy(data)}
 	>
 		(Copy)
@@ -32,6 +33,7 @@ const Open = ({ data, type }: { data: string, type: string }) => (
 	<button
 		type="button"
 		className="Data-button"
+		title="Open this data in a new tab"
 		onClick={() => open(type, data)}
 	>
 		(Open)

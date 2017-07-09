@@ -1,4 +1,4 @@
-.Data {
+.Data-item {
 	font-family: monospace;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 	border-radius: 0.25em;
@@ -34,7 +34,12 @@
 	color: #888;
 }
 
-.Data-copy {
+.Data-buttons {
+	min-height: 1.5em;
+	box-sizing: border-box;
+}
+
+.Data-button {
 	-webkit-appearance: none;
 	border: none;
 	background: transparent;
@@ -43,6 +48,8 @@
 	margin: 0;
 	margin-right: 0.5em;
 	padding: 0;
-	color: #ddd;
+	color: #222;
 	cursor: pointer;
+	height: 1em;
+	line-height: 1em;
 }

@@ -1,5 +1,6 @@
 .App {
 	font-size: 1.2em;
 	max-width: 50em;
-	margin: 2em auto;
+	margin: 0 auto;
+	padding: 0.5em;
 }

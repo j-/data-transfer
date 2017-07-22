@@ -46,7 +46,7 @@ export default class Data extends React.Component<Props> {
 		const { type, data } = this.props;
 		return (
 			<div className="Data">
-				<div className="Data-item">
+				<div className="Data-item pt-card">
 					<div className="Data-type">
 						{type}
 					</div>

@@ -3,7 +3,7 @@ import './MobilePaste.css';
 
 const MobilePaste = () => (
 	<input
-		className="MobilePaste"
+		className="MobilePaste pt-input"
 		type="text"
 		placeholder="Use this field to paste from a mobile device"
 	/>

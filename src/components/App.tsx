@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Ribbon from './Ribbon';
 import Introduction from './Introduction';
-import MobilePaste from './MobilePaste';
+import PasteInput from './PasteInput';
 import Effects from '../containers/Effects';
 import DataTransfer from '../containers/DataTransfer';
 import './App.css';
@@ -13,7 +13,7 @@ const App = () => (
 		<br />
 		<Introduction />
 		<br />
-		<MobilePaste />
+		<PasteInput />
 		<br />
 		<br />
 		<h2>Effects</h2>

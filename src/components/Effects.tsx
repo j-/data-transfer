@@ -10,24 +10,32 @@ export interface Props {
 export default class Effects extends React.Component<Props> {
 	render () {
 		return (
-			<div className="Effects">
-				<div className="Effects-effect">
-					<div className="Effects-label">
-						dropEffect
-					</div>
-					<div className="Effects-value">
-						{this.props.dropEffect}
-					</div>
-				</div>
-				<div className="Effects-effect">
-					<div className="Effects-label">
-						effectAllowed
-					</div>
-					<div className="Effects-value">
-						{this.props.effectAllowed}
-					</div>
-				</div>
-			</div>
+			<table className="Effects pt-table pt-bordered">
+				<thead>
+					<tr>
+						<th>Effect name</th>
+						<th>Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr className="Effects-effect">
+						<td className="Effects-label">
+							dropEffect
+						</td>
+						<td className="Effects-value">
+							{this.props.dropEffect}
+						</td>
+					</tr>
+					<tr className="Effects-effect">
+						<td className="Effects-label">
+							effectAllowed
+						</td>
+						<td className="Effects-value">
+							{this.props.effectAllowed}
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		);
 	}
 }

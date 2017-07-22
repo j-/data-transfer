@@ -1,19 +1,11 @@
 .Effects {
-	display: tables;
-	font-family: monospace;
 	margin: 1em 0;
-	border-collapse: collapse;
-}
-
-.Effects-effect {
-	display: table-row;
 }
 
 .Effects-label,
 .Effects-value {
-	display: table-cell;
+	font-family: monospace;
 	padding: 0.5em;
-	border: 1px solid #ccc;
 }
 
 .Effects-label {

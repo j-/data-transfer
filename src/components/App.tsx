@@ -3,6 +3,7 @@ import Ribbon from './Ribbon';
 import Introduction from './Introduction';
 import PasteInput from './PasteInput';
 import Effects from '../containers/Effects';
+import DataTransferHeader from '../containers/DataTransferHeader';
 import DataTransfer from '../containers/DataTransfer';
 import './App.css';
 
@@ -19,7 +20,7 @@ const App = () => (
 		<h2>Effects</h2>
 		<Effects />
 		<br />
-		<h2>Data transfer items</h2>
+		<DataTransferHeader />
 		<DataTransfer />
 	</div>
 );

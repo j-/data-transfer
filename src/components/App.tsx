@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Ribbon from './Ribbon';
 import Introduction from './Introduction';
 import MobilePaste from './MobilePaste';
 import Effects from '../containers/Effects';
@@ -7,6 +8,7 @@ import './App.css';
 
 const App = () => (
 	<div className="App">
+		<Ribbon />
 		<h1>Data transfer</h1>
 		<br />
 		<Introduction />

@@ -5,6 +5,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from './store/create';
 import { Provider } from 'react-redux';
 import 'normalize.css';
+import '@blueprintjs/core/dist/blueprint.css';
 import './index.css';
 
 const store = createStore();

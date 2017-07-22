@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Button } from '@blueprintjs/core';
 import './Data.css';
 
 const copy = require('clipboard-copy');
@@ -19,25 +20,25 @@ const Empty = () => (
 );
 
 const Copy = ({ data }: { data: string }) => (
-	<button
-		type="button"
-		className="Data-button"
+	<Button
+		className="Data-button pt-minimal"
+		iconName="clipboard"
 		title="Copy this data to clipboard"
 		onClick={() => copy(data)}
 	>
-		(Copy)
-	</button>
+		Copy data to clipboard
+	</Button>
 );
 
 const Open = ({ data, type }: { data: string, type: string }) => (
-	<button
-		type="button"
-		className="Data-button"
+	<Button
+		className="Data-button pt-minimal"
+		iconName="document-open"
 		title="Open this data in a new tab"
 		onClick={() => open(type, data)}
 	>
-		(Open)
-	</button>
+		Open in new tab
+	</Button>
 );
 
 export default class Data extends React.Component<Props> {

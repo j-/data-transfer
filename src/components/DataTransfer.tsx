@@ -18,6 +18,12 @@ const dropData = merge(dragEnterEvents, dragExitEvents, dropEvents).pluck<DragEv
 const pasteData = pasteEvents.pluck<ClipboardEvent, DataTransfer>('clipboardData');
 const dataTransfers = merge(dropData, pasteData);
 
+const EmptyList = () => (
+	<li>
+		<em>No items to show</em>
+	</li>
+);
+
 export interface Props {
 	transferData: (dt: DataTransfer) => void;
 	data: string[][];
@@ -49,7 +55,7 @@ export default class DataTransfer extends React.Component<Props> {
 		return (
 			<div className="DataTransfer">
 				<ul className="DataTransfer-list">
-					{children}
+					{children.length ? children : <EmptyList />}
 				</ul>
 			</div>
 		);

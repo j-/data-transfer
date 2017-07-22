@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Introduction from './Introduction';
 import MobilePaste from './MobilePaste';
 import Effects from '../containers/Effects';
 import DataTransfer from '../containers/DataTransfer';
@@ -7,9 +8,16 @@ import './App.css';
 const App = () => (
 	<div className="App">
 		<h1>Data transfer</h1>
-		<p>Copy+paste or click+drag into this window.</p>
+		<br />
+		<Introduction />
+		<br />
 		<MobilePaste />
+		<br />
+		<br />
+		<h2>Effects</h2>
 		<Effects />
+		<br />
+		<h2>Data transfer items</h2>
 		<DataTransfer />
 	</div>
 );

@@ -20,7 +20,12 @@ export default class Effects extends React.Component<Props> {
 				<tbody>
 					<tr className="Effects-effect">
 						<td className="Effects-label">
-							dropEffect
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/dropEffect"
+								title="none, copy, link or move"
+							>
+								dropEffect
+							</a>
 						</td>
 						<td className="Effects-value">
 							{this.props.dropEffect}
@@ -28,7 +33,12 @@ export default class Effects extends React.Component<Props> {
 					</tr>
 					<tr className="Effects-effect">
 						<td className="Effects-label">
-							effectAllowed
+							<a
+								href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/effectAllowed"
+								title="none, copy, copyLink, copyMove, link, linkMove, move, all or uninitialized"
+							>
+								effectAllowed
+							</a>
 						</td>
 						<td className="Effects-value">
 							{this.props.effectAllowed}

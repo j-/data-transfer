@@ -3,7 +3,7 @@ import './PasteInput.css';
 
 const cancel: React.EventHandler<React.SyntheticEvent<HTMLElement>> = (e) => e.preventDefault();
 
-const PasteInput = () => (
+const PasteInput: React.StatelessComponent = () => (
 	<div className="PasteInput">
 		<textarea
 			className="PasteInput-textarea form-control d-block"

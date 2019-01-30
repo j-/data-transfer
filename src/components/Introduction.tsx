@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const Introduction = () => (
+const Introduction: React.StatelessComponent = () => (
 	<div>
 		<p>
 			The <a href="https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer">DataTransfer</a> object

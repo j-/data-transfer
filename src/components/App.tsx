@@ -6,7 +6,7 @@ import DataTransferHeader from '../containers/DataTransferHeader';
 import DataTransfer from '../containers/DataTransfer';
 import './App.css';
 
-const App = () => (
+const App: React.StatelessComponent = () => (
 	<div className="App container mt-5 mb-5">
 		<a href="https://skeoh.com" className="text-muted">&larr; skeoh.com</a>
 		<h1 className="mb-5">Data transfer</h1>

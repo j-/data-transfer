@@ -8,13 +8,13 @@ export interface Props {
 	data: string;
 }
 
-const Empty = () => (
+const Empty: React.StatelessComponent = () => (
 	<em className="Data-empty">
 		Empty
 	</em>
 );
 
-const Copy = ({ data }: { data: string }) => (
+const Copy: React.StatelessComponent<{ data: string }> = ({ data }) => (
 	<button
 		type="button"
 		className="Data-button btn btn-light"

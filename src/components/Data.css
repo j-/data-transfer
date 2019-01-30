@@ -3,22 +3,14 @@
 	overflow: hidden;
 }
 
-.Data-item.pt-card {
-	padding: 0;
-}
-
 .Data-type {
 	font-weight: bold;
-	background-color: #444;
-	color: #fff;
-	padding: 0.25em 0.5em;
 }
 
 .Data-data {
 	min-height: 2em;
 	white-space: pre-wrap;
 	overflow: auto;
-	background-color: #fafafa;
 	padding: 0.5em;
 	line-height: 1em;
 	box-sizing: border-box;

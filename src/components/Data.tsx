@@ -1,12 +1,7 @@
 import * as React from 'react';
-import { Button } from '@blueprintjs/core';
 import './Data.css';
 
 const copy = require('clipboard-copy');
-
-const open = (type: string, data: string) => (
-	window.open(`data:${type},${data}`)
-);
 
 export interface Props {
 	type: string;
@@ -20,25 +15,14 @@ const Empty = () => (
 );
 
 const Copy = ({ data }: { data: string }) => (
-	<Button
-		className="Data-button pt-minimal"
-		iconName="clipboard"
+	<button
+		type="button"
+		className="Data-button btn btn-light"
 		title="Copy this data to clipboard"
 		onClick={() => copy(data)}
 	>
 		Copy data to clipboard
-	</Button>
-);
-
-const Open = ({ data, type }: { data: string, type: string }) => (
-	<Button
-		className="Data-button pt-minimal"
-		iconName="document-open"
-		title="Open this data in a new tab"
-		onClick={() => open(type, data)}
-	>
-		Open in new tab
-	</Button>
+	</button>
 );
 
 export default class Data extends React.Component<Props> {
@@ -46,17 +30,16 @@ export default class Data extends React.Component<Props> {
 		const { type, data } = this.props;
 		return (
 			<div className="Data">
-				<div className="Data-item pt-card">
-					<div className="Data-type">
+				<div className="Data-item card">
+					<div className="Data-type card-header">
 						{type}
 					</div>
-					<div className="Data-data">
+					<div className="Data-data card-body">
 						{data || <Empty />}
 					</div>
 				</div>
 				<div className="Data-buttons">
 					{data && <Copy data={data} />}
-					{data && <Open data={data} type={type} />}
 				</div>
 			</div>
 		);

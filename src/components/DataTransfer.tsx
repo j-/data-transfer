@@ -48,7 +48,7 @@ export default class DataTransfer extends React.Component<Props> {
 
 	render () {
 		const children = this.props.data.map(([type, data]) => (
-			<li key={type} className="DataTransfer-list-item">
+			<li key={type} className="DataTransfer-list-item mb-3">
 				<Data type={type} data={data} />
 			</li>
 		));

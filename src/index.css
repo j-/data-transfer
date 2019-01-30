@@ -1,15 +1,6 @@
-html,
 body {
 	margin: 0;
 	padding: 0;
-}
-
-body {
+	font-family: sans-serif;
 	overflow-y: scroll;
-}
-
-#root {
-	margin: 1em auto;
-	min-width: 400px;
-	max-width: 800px;
 }

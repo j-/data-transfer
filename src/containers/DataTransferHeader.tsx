@@ -8,8 +8,8 @@ interface Props {
 
 const DataTransferHeader = ({ count }: Props) => (
 	count === 0 ?
-		<h2>Data transfer items</h2> :
-		<h2>Data transfer items ({count})</h2>
+		<h2 className="mt-5 mb-3">Data transfer items</h2> :
+		<h2 className="mt-5 mb-3">Data transfer items ({count})</h2>
 );
 
 const mapStateToProps = (state: ReducerState) => ({

@@ -10,7 +10,7 @@ export interface Props {
 export default class Effects extends React.Component<Props> {
 	render () {
 		return (
-			<table className="Effects pt-table pt-bordered">
+			<table className="Effects table table-bordered">
 				<thead>
 					<tr>
 						<th>Effect name</th>

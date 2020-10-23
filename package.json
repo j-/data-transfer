@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.2.1"
+    "bootstrap": "^4.5.3"
   },
   "devDependencies": {
     "@types/jest": "^20.0.0",

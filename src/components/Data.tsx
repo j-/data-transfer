@@ -1,8 +1,6 @@
 import * as React from 'react';
 import './Data.css';
 
-const copy = require('clipboard-copy');
-
 export interface Props {
 	type: string;
 	data: string;
@@ -19,7 +17,7 @@ const Copy: React.StatelessComponent<{ data: string }> = ({ data }) => (
 		type="button"
 		className="Data-button btn btn-light"
 		title="Copy this data to clipboard"
-		onClick={() => copy(data)}
+		onClick={() => (navigator as any).clipboard.writeText(data)}
 	>
 		Copy data to clipboard
 	</button>

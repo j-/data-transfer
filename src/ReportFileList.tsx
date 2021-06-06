@@ -12,15 +12,17 @@ type Props = {
 
 const ReportFileList: React.FC<Props> = ({ path, files }) => (
   <Report>
-    <h3 className="my-5">Files</h3>
-    <ConsoleGroup>
-      <ConsoleInput input={path} />
-      <ConsoleOutput output={files} />
-    </ConsoleGroup>
-    <ConsoleGroup>
-      <ConsoleInput input={`${path}.length`} />
-      <ConsoleOutput output={files.length} />
-    </ConsoleGroup>
+    <h3 key="files" className="h3 my-5">Files</h3>
+    <div>
+      <ConsoleGroup>
+        <ConsoleInput input={path} />
+        <ConsoleOutput output={files} />
+      </ConsoleGroup>
+      <ConsoleGroup>
+        <ConsoleInput input={`${path}.length`} />
+        <ConsoleOutput output={files.length} />
+      </ConsoleGroup>
+    </div>
     {Array.from(files, (file, i) => (
       <ReportFileListItem
         key={`report-file-list-item-${i}`}

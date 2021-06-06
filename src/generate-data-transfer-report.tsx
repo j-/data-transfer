@@ -3,7 +3,8 @@ import ConsoleGroup from './ConsoleGroup';
 import ConsoleInput from './ConsoleInput';
 import ConsoleOutput, { ConsoleOutputType } from './ConsoleOutput';
 import ReportFileList from './ReportFileList';
-import { getFilesFromEntry } from './get-files-from-entry';
+import ReportItemHandle from './ReportItemHandle';
+import ReportItemEntry from './ReportItemEntry';
 
 const getAsString = (item: DataTransferItem) => (
   new Promise((resolve) => {
@@ -15,7 +16,6 @@ const hellip = '\u2026';
 
 export const generateDataTransferReport = (path: string, dt: DataTransfer, isSafe = false): React.ReactChild => {
   const children: React.ReactChild[] = [];
-  const isSecure = window.isSecureContext;
 
   if (isSafe) {
     console.dir(dt);
@@ -37,16 +37,15 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
   push(`${path}.dropEffect`, dt.dropEffect);
   push(`${path}.effectAllowed`, dt.effectAllowed);
   push(`${path}.types`, dt.types);
-  push(`${path}.items`, dt.items);
 
-  children.push(<h3 className="my-5">Items</h3>);
+  children.push(<h3 key="dt-items" className="my-5">Items</h3>);
 
   if (dt.items) {
     push(`${path}.items`, dt.items);
     push(`${path}.items.length`, dt.items.length);
 
     for (let i = 0; i < dt.items.length; i++) {
-      children.push(<h4 className="my-5">Item {i}</h4>);
+      children.push(<h4 key={`dt-item-${i}`} className="h3 my-5">Items &mdash; Item {i}</h4>);
 
       const item = dt.items[i];
       const subpath = `${path}.items[${i}]`;
@@ -66,65 +65,27 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
           );
         }
       } else {
-        children.push(<h5 className="my-4">Handle</h5>);
-        push(
-          `typeof ${subpath}.getAsFileSystemHandle`,
-          typeof item.getAsFileSystemHandle
+        children.push(
+          <ReportItemHandle
+            key={`report-item-${i}-handle`}
+            path={subpath}
+            index={i}
+            item={item}
+          />
         );
-        if (typeof item.getAsFileSystemHandle === 'function' && isSafe && isSecure) {
-          const handle = item.getAsFileSystemHandle();
-          push(
-            `${subpath}.getAsFileSystemHandle()`,
-            handle
-          );
-          push(
-            `${subpath}.getAsFileSystemHandle()${hellip}.kind`,
-            handle.then((entry) => entry.kind)
-          );
-          push(
-            `${subpath}.getAsFileSystemHandle()${hellip}.name`,
-            handle.then((entry) => entry.name)
-          );
-        }
-        children.push(<h5 className="my-4">Entry</h5>);
-        push(
-          `typeof ${subpath}.webkitGetAsEntry`,
-          typeof item.webkitGetAsEntry
+        children.push(
+          <ReportItemEntry
+            key={`report-item-${i}-entry`}
+            path={subpath}
+            index={i}
+            item={item}
+          />
         );
-        if (typeof item.webkitGetAsEntry === 'function' && isSafe && isSecure) {
-          const entry = item.webkitGetAsEntry();
-          push(
-            `${subpath}.webkitGetAsEntry()`,
-            entry
-          );
-          if (entry != null) {
-            push(
-              `${subpath}.webkitGetAsEntry().isFile`,
-              entry.isFile
-            );
-            push(
-              `${subpath}.webkitGetAsEntry().isDirectory`,
-              entry.isDirectory
-            );
-            push(
-              `${subpath}.webkitGetAsEntry().name`,
-              entry.name
-            );
-            push(
-              `${subpath}.webkitGetAsEntry().fullPath`,
-              entry.fullPath
-            );
-            push(
-              `getFilesFromEntry(${subpath}.webkitGetAsEntry())`,
-              Promise.resolve().then(() => getFilesFromEntry(entry)).then((files) => files.map((file) => file.name))
-            );
-          }
-        }
       }
     }
   }
 
-  children.push(<ReportFileList path={`${path}.files`} files={dt.files} />);
+  children.push(<ReportFileList key="report-file-list" path={`${path}.files`} files={dt.files} />);
 
   return flush();
 };

@@ -12,7 +12,7 @@ type Props = {
 
 const ReportFileListItem: React.FC<Props> = ({ path, index, file }) => (
   <Report>
-    <h4 className="my-5">File {index}</h4>
+    <h4 className="h3 my-5">Files &mdash; File {index}</h4>
     <ConsoleGroup>
       <ConsoleInput input={`${path}.lastModified`} />
       <ConsoleOutput output={file.lastModified} />

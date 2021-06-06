@@ -26,7 +26,7 @@ export const generateEventReport = (path: string, event: ClipboardEvent | DragEv
     return <>{children}</>;
   };
 
-  children.push(<h3 className="my-5">Basics</h3>);
+  children.push(<h3 key="basics" className="my-5">Basics</h3>);
 
   push(`${path}.type`, event.type);
   push(`${path}.timeStamp`, event.timeStamp);

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Report: React.FC = ({ children }) => (
-  <div className="Report m-3">
+  <div className="Report">
     {children}
   </div>
 );

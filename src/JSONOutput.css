@@ -1,0 +1,19 @@
+.JSONOutputString {
+  /* Amber 600 */
+  color: #D97706;
+}
+
+.JSONOutputNumber {
+  /* Emerald 600 */
+  color: #059669;
+}
+
+.JSONOutputBoolean {
+  /* Violet 600 */
+  color: #7C3AED;
+}
+
+.JSONOutput-symbol {
+  /* Gray 600 */
+  color: #4B5563;
+}

@@ -1,26 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Support from './Support';
+import { generateReport } from './generate-report';
 
-function App() {
+const App: React.FC = () => {
+  const [report, setReport] = React.useState<React.ReactNode>(null);
+
+  React.useEffect(() => {
+    const handler = (e: ClipboardEvent | DragEvent) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      setReport(generateReport(e));
+    };
+    window.addEventListener('dragover', handler);
+    window.addEventListener('drop', handler);
+    document.addEventListener('paste', handler);
+    return () => {
+      window.removeEventListener('dragover', handler);
+      window.removeEventListener('drop', handler);
+      document.removeEventListener('paste', handler);
+    };
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container my-5">
+      <h1 className="my-5">Data transfer</h1>
+      <textarea
+        className="form-control my-5"
+        style={{ height: '4em', minHeight: '4em' }}
+        defaultValue=""
+        placeholder="Paste something into this textarea or this window, or drop something onto this window&hellip;"
+      />
+
+      {report && (
+        <>
+          <h2 className="my-3">Output</h2>
+          <div className="my-5">{report}</div>
+        </>
+      )}
+
+      <h2 className="my-3">Support</h2>
+      <div className="my-5"><Support /></div>
+
     </div>
   );
-}
+};
 
 export default App;

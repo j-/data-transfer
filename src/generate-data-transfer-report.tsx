@@ -85,13 +85,13 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
             handle.then((entry) => entry.name)
           );
         }
+        children.push(<h5 className="my-4">Entry</h5>);
         push(
           `typeof ${subpath}.webkitGetAsEntry`,
           typeof item.webkitGetAsEntry
         );
         if (typeof item.webkitGetAsEntry === 'function' && isSafe && isSecure) {
           const entry = item.webkitGetAsEntry();
-          children.push(<h5 className="my-4">Entry</h5>);
           push(
             `${subpath}.webkitGetAsEntry()`,
             entry

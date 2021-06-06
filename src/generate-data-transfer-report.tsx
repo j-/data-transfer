@@ -2,6 +2,7 @@ import React from 'react';
 import ConsoleGroup from './ConsoleGroup';
 import ConsoleInput from './ConsoleInput';
 import ConsoleOutput, { ConsoleOutputType } from './ConsoleOutput';
+import ReportFileList from './ReportFileList';
 import { getFilesFromEntry } from './get-files-from-entry';
 
 const getAsString = (item: DataTransferItem) => (
@@ -123,25 +124,7 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
     }
   }
 
-  children.push(<h3 className="my-5">Files</h3>);
-
-  push(`${path}.files`, dt.files);
-
-  if (dt.files) {
-    push(`${path}.files.length`, dt.files.length);
-
-    for (let i = 0; i < dt.files.length; i++) {
-      children.push(<h4 className="my-5">File {i}</h4>);
-
-      const file = dt.files[i];
-      const subpath = `${path}.files[${i}]`;
-      push(`${subpath}.lastModified`, file.lastModified);
-      push(`${subpath}.name`, file.name);
-      push(`${subpath}.webkitRelativePath`, file.webkitRelativePath);
-      push(`${subpath}.size`, file.size);
-      push(`${subpath}.type`, file.type);
-    }
-  }
+  children.push(<ReportFileList path={`${path}.files`} files={dt.files} />);
 
   return flush();
 };

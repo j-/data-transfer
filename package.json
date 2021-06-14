@@ -43,5 +43,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "Inspect data transfer objects from drag+drop and paste operations",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/data-transfer-report.git"
+  },
+  "author": "Jamie Hoeks <j@skeoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-/data-transfer-report/issues"
+  },
+  "homepage": "https://github.com/j-/data-transfer-report#readme"
 }

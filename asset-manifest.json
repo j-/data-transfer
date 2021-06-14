@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/j-/data-transfer-reportstatic/css/main.2676dc13.chunk.css",
-    "main.js": "/j-/data-transfer-reportstatic/js/main.a124d0c5.chunk.js",
-    "main.js.map": "/j-/data-transfer-reportstatic/js/main.a124d0c5.chunk.js.map",
-    "runtime-main.js": "/j-/data-transfer-reportstatic/js/runtime-main.f8054b0b.js",
-    "runtime-main.js.map": "/j-/data-transfer-reportstatic/js/runtime-main.f8054b0b.js.map",
-    "static/css/2.4f8976c6.chunk.css": "/j-/data-transfer-reportstatic/css/2.4f8976c6.chunk.css",
-    "static/js/2.b4ce6bd5.chunk.js": "/j-/data-transfer-reportstatic/js/2.b4ce6bd5.chunk.js",
-    "static/js/2.b4ce6bd5.chunk.js.map": "/j-/data-transfer-reportstatic/js/2.b4ce6bd5.chunk.js.map",
-    "index.html": "/j-/data-transfer-reportindex.html",
-    "static/css/2.4f8976c6.chunk.css.map": "/j-/data-transfer-reportstatic/css/2.4f8976c6.chunk.css.map",
-    "static/css/main.2676dc13.chunk.css.map": "/j-/data-transfer-reportstatic/css/main.2676dc13.chunk.css.map",
-    "static/js/2.b4ce6bd5.chunk.js.LICENSE.txt": "/j-/data-transfer-reportstatic/js/2.b4ce6bd5.chunk.js.LICENSE.txt"
+    "main.css": "/data-transfer-report/static/css/main.2676dc13.chunk.css",
+    "main.js": "/data-transfer-report/static/js/main.a124d0c5.chunk.js",
+    "main.js.map": "/data-transfer-report/static/js/main.a124d0c5.chunk.js.map",
+    "runtime-main.js": "/data-transfer-report/static/js/runtime-main.b568c4ac.js",
+    "runtime-main.js.map": "/data-transfer-report/static/js/runtime-main.b568c4ac.js.map",
+    "static/css/2.4f8976c6.chunk.css": "/data-transfer-report/static/css/2.4f8976c6.chunk.css",
+    "static/js/2.b4ce6bd5.chunk.js": "/data-transfer-report/static/js/2.b4ce6bd5.chunk.js",
+    "static/js/2.b4ce6bd5.chunk.js.map": "/data-transfer-report/static/js/2.b4ce6bd5.chunk.js.map",
+    "index.html": "/data-transfer-report/index.html",
+    "static/css/2.4f8976c6.chunk.css.map": "/data-transfer-report/static/css/2.4f8976c6.chunk.css.map",
+    "static/css/main.2676dc13.chunk.css.map": "/data-transfer-report/static/css/main.2676dc13.chunk.css.map",
+    "static/js/2.b4ce6bd5.chunk.js.LICENSE.txt": "/data-transfer-report/static/js/2.b4ce6bd5.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f8054b0b.js",
+    "static/js/runtime-main.b568c4ac.js",
     "static/css/2.4f8976c6.chunk.css",
     "static/js/2.b4ce6bd5.chunk.js",
     "static/css/main.2676dc13.chunk.css",

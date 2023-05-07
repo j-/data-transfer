@@ -16,6 +16,19 @@ const BlobActions: React.FC<Props> = ({ type, value }) => {
     window.open(objectURL, '_blank');
   }, [objectURL]);
 
+  const handleClickCopyPlain = React.useCallback(() => {
+    navigator.clipboard.writeText(value);
+  }, [value]);
+
+  const handleClickCopyType = React.useCallback(() => {
+    if (!type) return;
+    navigator.clipboard.write(
+      [new ClipboardItem({
+        [type]: blob,
+      })]
+    );
+  }, [blob, value, type]);
+
   React.useEffect(() => {
     const url = URL.createObjectURL(blob);
     setObjectURL(url);
@@ -23,7 +36,7 @@ const BlobActions: React.FC<Props> = ({ type, value }) => {
   }, [blob]);
 
   return (
-    <div className="BlobActions">
+    <div className="BlobActions d-flex gap-2">
       <button
         className="btn btn-light btn-sm"
         type="button"
@@ -31,6 +44,22 @@ const BlobActions: React.FC<Props> = ({ type, value }) => {
       >
         Open in new tab
       </button>
+
+      {type && <button
+        className="btn btn-light btn-sm"
+        type="button"
+        onClick={handleClickCopyPlain}
+      >
+        Copy as plain text
+      </button>}
+
+      {type && <button
+        className="btn btn-light btn-sm"
+        type="button"
+        onClick={handleClickCopyType}
+      >
+        Copy as {type}
+      </button>}
     </div>
   );
 };

@@ -55,11 +55,13 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
       pushInline(`${subpath}.kind`, item.kind);
       pushInline(`${subpath}.type`, item.type);
       if (item.kind === 'string') {
-        pushMultiline(
-          `${path}.getData(${JSON.stringify(item.type)})`,
-          dt.getData(item.type),
-          item.type
-        );
+        const label = `${path}.getData(${JSON.stringify(item.type)})`;
+        const data = dt.getData(item.type);
+        if (data === '') {
+          pushInline(label, data, item.type);
+        } else {
+          pushMultiline(label, data, item.type);
+        }
       } else {
         children.push(
           <ReportItemHandle

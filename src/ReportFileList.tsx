@@ -1,5 +1,5 @@
 import React from 'react';
-import ConsoleGroup from './ConsoleGroup';
+import ConsoleGroupInline from './ConsoleGroupInline';
 import ConsoleInput from './ConsoleInput';
 import ConsoleOutput from './ConsoleOutput';
 import Report from './Report';
@@ -14,14 +14,14 @@ const ReportFileList: React.FC<Props> = ({ path, files }) => (
   <Report>
     <h3 key="files" className="h3 my-5">Files</h3>
     <div>
-      <ConsoleGroup>
+      <ConsoleGroupInline>
         <ConsoleInput input={path} />
         <ConsoleOutput output={files} />
-      </ConsoleGroup>
-      <ConsoleGroup>
+      </ConsoleGroupInline>
+      <ConsoleGroupInline>
         <ConsoleInput input={`${path}.length`} />
         <ConsoleOutput output={files.length} />
-      </ConsoleGroup>
+      </ConsoleGroupInline>
     </div>
     {Array.from(files, (file, i) => (
       <ReportFileListItem

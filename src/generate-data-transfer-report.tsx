@@ -1,18 +1,11 @@
 import React from 'react';
-import ConsoleGroup from './ConsoleGroup';
+import ConsoleGroupInline from './ConsoleGroupInline';
 import ConsoleInput from './ConsoleInput';
 import ConsoleOutput, { ConsoleOutputType } from './ConsoleOutput';
 import ReportFileList from './ReportFileList';
 import ReportItemHandle from './ReportItemHandle';
 import ReportItemEntry from './ReportItemEntry';
-
-const getAsString = (item: DataTransferItem) => (
-  new Promise((resolve) => {
-    item.getAsString((result) => resolve(result));
-  })
-);
-
-const hellip = '\u2026';
+import ConsoleGroupMultiline from './ConsoleGroupMultiline';
 
 export const generateDataTransferReport = (path: string, dt: DataTransfer, isSafe = false): React.ReactChild => {
   const children: React.ReactChild[] = [];
@@ -21,12 +14,21 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
     console.dir(dt);
   }
 
-  const push = (input: string, output: ConsoleOutputType, type?: string): void => {
+  const pushInline = (input: string, output: ConsoleOutputType, type?: string): void => {
     children.push(
-      <ConsoleGroup key={`${input}-${output}`}>
+      <ConsoleGroupInline key={`${input}-${output}`}>
         <ConsoleInput input={input} />
         <ConsoleOutput output={output} type={type} />
-      </ConsoleGroup>
+      </ConsoleGroupInline>
+    );
+  };
+
+  const pushMultiline = (input: string, output: ConsoleOutputType, type?: string): void => {
+    children.push(
+      <ConsoleGroupMultiline key={`${input}-${output}`}>
+        <ConsoleInput input={input} />
+        <ConsoleOutput output={output} type={type} />
+      </ConsoleGroupMultiline>
     );
   };
 
@@ -34,36 +36,29 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
     return <>{children}</>;
   };
 
-  push(`${path}.dropEffect`, dt.dropEffect);
-  push(`${path}.effectAllowed`, dt.effectAllowed);
-  push(`${path}.types`, dt.types);
+  pushInline(`${path}.dropEffect`, dt.dropEffect);
+  pushInline(`${path}.effectAllowed`, dt.effectAllowed);
+  pushInline(`${path}.types`, dt.types);
 
   children.push(<h3 key="dt-items" className="my-5">Items</h3>);
 
   if (dt.items) {
-    push(`${path}.items`, dt.items);
-    push(`${path}.items.length`, dt.items.length);
+    pushInline(`${path}.items`, dt.items);
+    pushInline(`${path}.items.length`, dt.items.length);
 
     for (let i = 0; i < dt.items.length; i++) {
       children.push(<h4 key={`dt-item-${i}`} className="h3 my-5">Items &mdash; Item {i}</h4>);
 
       const item = dt.items[i];
       const subpath = `${path}.items[${i}]`;
-      push(`${subpath}.kind`, item.kind);
-      push(`${subpath}.type`, item.type);
+      pushInline(`${subpath}.kind`, item.kind);
+      pushInline(`${subpath}.type`, item.type);
       if (item.kind === 'string') {
-        push(
+        pushMultiline(
           `${path}.getData(${JSON.stringify(item.type)})`,
           dt.getData(item.type),
           item.type
         );
-        if (isSafe) {
-          push(
-            `${subpath}.getAsString()${hellip}`,
-            getAsString(item),
-            item.type
-          );
-        }
       } else {
         children.push(
           <ReportItemHandle

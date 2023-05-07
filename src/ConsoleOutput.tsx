@@ -41,8 +41,8 @@ const ConsoleOutput: React.FC<Props> = ({ type, output }) => {
 
   return (
     <div className="ConsoleOutput">
-      <pre className="ConsoleOutput-contents">{result}</pre>
-      {type && <button className="btn btn-dark btn-sm" type="button" onClick={handleClickOpen}>Open in new tab</button>}
+      <pre className="ConsoleOutput-contents d-inline">{result}</pre>
+      {type && <button className="btn btn-light btn-sm" type="button" onClick={handleClickOpen}>Open in new tab</button>}
     </div>
   );
 };

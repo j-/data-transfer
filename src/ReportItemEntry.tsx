@@ -1,5 +1,6 @@
 import React from 'react';
-import ConsoleGroup from './ConsoleGroup';
+import ConsoleGroupInline from './ConsoleGroupInline';
+import ConsoleGroupMultiline from './ConsoleGroupMultiline';
 import ConsoleInput from './ConsoleInput';
 import ConsoleOutput from './ConsoleOutput';
 import { getFilesFromEntry } from './get-files-from-entry';
@@ -14,43 +15,43 @@ type Props = {
 const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
   <Report>
     <h5 className="h3 my-5">Items &mdash; Item {index}  &mdash; Entry</h5>
-    <ConsoleGroup>
+    <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.webkitGetAsEntry`} />
       <ConsoleOutput output={typeof item.webkitGetAsEntry} />
-    </ConsoleGroup>
+    </ConsoleGroupInline>
     {typeof item.webkitGetAsEntry === 'function' && window.isSecureContext && (
       (() => {
         const entry = item.webkitGetAsEntry();
         if (entry == null) {
           return (
-            <ConsoleGroup>
+            <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
               <ConsoleOutput output={entry} />
-            </ConsoleGroup>
+            </ConsoleGroupInline>
           );
         }
         return (
           <>
-            <ConsoleGroup>
+            <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().isFile`} />
               <ConsoleOutput output={entry.isFile} />
-            </ConsoleGroup>
-            <ConsoleGroup>
+            </ConsoleGroupInline>
+            <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().isDirectory`} />
               <ConsoleOutput output={entry.isDirectory} />
-            </ConsoleGroup>
-            <ConsoleGroup>
+            </ConsoleGroupInline>
+            <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().name`} />
               <ConsoleOutput output={entry.name} />
-            </ConsoleGroup>
-            <ConsoleGroup>
+            </ConsoleGroupInline>
+            <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().fullPath`} />
               <ConsoleOutput output={entry.fullPath} />
-            </ConsoleGroup>
-            <ConsoleGroup>
+            </ConsoleGroupInline>
+            <ConsoleGroupMultiline>
               <ConsoleInput input={`getFilesFromEntry(${path}.webkitGetAsEntry())`} />
               <ConsoleOutput output={Promise.resolve().then(() => getFilesFromEntry(entry)).then((files) => files.map((file) => file.name))} />
-            </ConsoleGroup>
+            </ConsoleGroupMultiline>
           </>
         );
       })()

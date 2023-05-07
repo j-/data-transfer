@@ -1,5 +1,5 @@
 import React from 'react';
-import ConsoleGroup from './ConsoleGroup';
+import ConsoleGroupInline from './ConsoleGroupInline';
 import ConsoleInput from './ConsoleInput';
 import ConsoleOutput from './ConsoleOutput';
 import Report from './Report';
@@ -15,27 +15,27 @@ const hellip = '\u2026';
 const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
   <Report>
     <h5 className="h3 my-5">Items &mdash; Item {index} &mdash; Handle</h5>
-    <ConsoleGroup>
+    <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.getAsFileSystemHandle`} />
       <ConsoleOutput output={typeof item.getAsFileSystemHandle} />
-    </ConsoleGroup>
+    </ConsoleGroupInline>
     {typeof item.getAsFileSystemHandle === 'function' && window.isSecureContext && (
       (() => {
         const handle = item.getAsFileSystemHandle();
         return (
           <>
-            <ConsoleGroup>
+            <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()`} />
               <ConsoleOutput output={handle} />
-            </ConsoleGroup>
-            <ConsoleGroup>
+            </ConsoleGroupInline>
+            <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.kind`} />
               <ConsoleOutput output={handle.then((entry) => entry.kind)} />
-            </ConsoleGroup>
-            <ConsoleGroup>
+            </ConsoleGroupInline>
+            <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.name`} />
               <ConsoleOutput output={handle.then((entry) => entry.name)} />
-            </ConsoleGroup>
+            </ConsoleGroupInline>
           </>
         );
       })()

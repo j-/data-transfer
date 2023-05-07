@@ -1,66 +1,66 @@
 import React from 'react';
 import Report from './Report';
-import ConsoleGroup from './ConsoleGroup';
+import ConsoleGroupInline from './ConsoleGroupInline';
 import ConsoleInput from './ConsoleInput';
 import ConsoleOutput from './ConsoleOutput';
 
 const Support: React.FC = () => {
   return (
     <Report>
-      <ConsoleGroup>
+      <ConsoleGroupInline>
         <ConsoleInput input="'clipboardData' in ClipboardEvent.prototype" />
         <ConsoleOutput output={'clipboardData' in ClipboardEvent.prototype} />
-      </ConsoleGroup>
-      <ConsoleGroup>
+      </ConsoleGroupInline>
+      <ConsoleGroupInline>
         <ConsoleInput input="'dataTransfer' in DragEvent.prototype" />
         <ConsoleOutput output={'dataTransfer' in DragEvent.prototype} />
-      </ConsoleGroup>
-      <ConsoleGroup>
+      </ConsoleGroupInline>
+      <ConsoleGroupInline>
         <ConsoleInput input="'DataTransferItem' in window" />
         <ConsoleOutput output={'DataTransferItem' in window} />
-      </ConsoleGroup>
-      <ConsoleGroup>
+      </ConsoleGroupInline>
+      <ConsoleGroupInline>
         <ConsoleInput input="'DataTransferItemList' in window" />
         <ConsoleOutput output={'DataTransferItemList' in window} />
-      </ConsoleGroup>
-      <ConsoleGroup>
+      </ConsoleGroupInline>
+      <ConsoleGroupInline>
         <ConsoleInput input="'ClipboardItem' in window" />
         <ConsoleOutput output={'ClipboardItem' in window} />
-      </ConsoleGroup>
-      <ConsoleGroup>
+      </ConsoleGroupInline>
+      <ConsoleGroupInline>
         <ConsoleInput input="'ondrop' in window" />
         <ConsoleOutput output={'ondrop' in window} />
-      </ConsoleGroup>
-      <ConsoleGroup>
+      </ConsoleGroupInline>
+      <ConsoleGroupInline>
         <ConsoleInput input="'onpaste' in document" />
         <ConsoleOutput output={'onpaste' in document} />
-      </ConsoleGroup>
+      </ConsoleGroupInline>
       {'DataTransfer' in window && (
         <>
-          <ConsoleGroup>
+          <ConsoleGroupInline>
             <ConsoleInput input="'types' in DataTransfer.prototype" />
             <ConsoleOutput output={'types' in DataTransfer.prototype} />
-          </ConsoleGroup>
-          <ConsoleGroup>
+          </ConsoleGroupInline>
+          <ConsoleGroupInline>
             <ConsoleInput input="'items' in DataTransfer.prototype" />
             <ConsoleOutput output={'items' in DataTransfer.prototype} />
-          </ConsoleGroup>
-          <ConsoleGroup>
+          </ConsoleGroupInline>
+          <ConsoleGroupInline>
             <ConsoleInput input="'files' in DataTransfer.prototype" />
             <ConsoleOutput output={'files' in DataTransfer.prototype} />
-          </ConsoleGroup>
+          </ConsoleGroupInline>
         </>
       )}
       {'DataTransferItem' in window && (
         <>
-          <ConsoleGroup>
+          <ConsoleGroupInline>
             <ConsoleInput input="'getAsFileSystemHandle' in DataTransferItem.prototype" />
             <ConsoleOutput output={'getAsFileSystemHandle' in DataTransferItem.prototype} />
-          </ConsoleGroup>
-          <ConsoleGroup>
+          </ConsoleGroupInline>
+          <ConsoleGroupInline>
             <ConsoleInput input="'webkitGetAsEntry' in DataTransferItem.prototype" />
             <ConsoleOutput output={'webkitGetAsEntry' in DataTransferItem.prototype} />
-          </ConsoleGroup>
+          </ConsoleGroupInline>
         </>
       )}
     </Report>

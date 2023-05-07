@@ -40,7 +40,7 @@ const ReportItemFile: React.FC<Props> = ({ path, index, item }) => (
             </ConsoleGroupInline>
             <ReportFileListItem
               key={`report-item-list-item-${index}-file`}
-              path={path}
+              path={`${path}.getAsFile()`}
               index={index}
               file={file}
             />

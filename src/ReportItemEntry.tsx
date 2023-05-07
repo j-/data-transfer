@@ -59,6 +59,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, item }) => (
               <span className="text-muted">&#x27f9;</span>
               <ConsoleOutput output={entry.fullPath} />
             </ConsoleGroupInline>
+            <br />
             <ConsoleGroupMultiline>
               <ConsoleInput input={`getFilesFromEntry(${path}.webkitGetAsEntry())`} />
               <ConsoleOutput output={Promise.resolve().then(() => getFilesFromEntry(entry)).then((files) => files.map((file) => file.name))} />

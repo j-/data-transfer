@@ -53,7 +53,7 @@ const BlobActions: React.FC<Props> = ({ type, value }) => {
         Copy as plain text
       </button>}
 
-      {type && <button
+      {type && type !== 'text/plain' && <button
         className="btn btn-light btn-sm"
         type="button"
         onClick={handleClickCopyType}

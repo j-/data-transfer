@@ -1,0 +1,11 @@
+.ListItem {
+  margin: 2rem 0;
+}
+
+.ListItem::before {
+  counter-increment: list;
+  content: "[" attr(value) "]";
+  font-family: monospace;
+  position: absolute;
+  left: 0;
+}

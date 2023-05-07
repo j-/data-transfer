@@ -12,11 +12,12 @@ type Props = {
 
 const hellip = '\u2026';
 
-const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
+const ReportItemHandle: React.FC<Props> = ({ path, item }) => (
   <Report>
-    <h5 className="h3 my-5">Items &mdash; Item {index} &mdash; Handle</h5>
+    <br />
     <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.getAsFileSystemHandle`} />
+      <span className="text-muted">&#x27f9;</span>
       <ConsoleOutput output={typeof item.getAsFileSystemHandle} />
     </ConsoleGroupInline>
     {typeof item.getAsFileSystemHandle === 'function' && window.isSecureContext && (
@@ -26,14 +27,17 @@ const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
           <>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()`} />
+              <span className="text-muted">&#x27f9;</span>
               <ConsoleOutput output={handle} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.kind`} />
+              <span className="text-muted">&#x27f9;</span>
               <ConsoleOutput output={handle.then((entry) => entry.kind)} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.name`} />
+              <span className="text-muted">&#x27f9;</span>
               <ConsoleOutput output={handle.then((entry) => entry.name)} />
             </ConsoleGroupInline>
           </>

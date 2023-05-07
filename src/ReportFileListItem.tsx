@@ -10,27 +10,31 @@ type Props = {
   file: File;
 };
 
-const ReportFileListItem: React.FC<Props> = ({ path, index, file }) => (
+const ReportFileListItem: React.FC<Props> = ({ path, file }) => (
   <Report>
-    <h4 className="h3 my-5">Files &mdash; File {index}</h4>
     <ConsoleGroupInline>
       <ConsoleInput input={`${path}.lastModified`} />
+      <span className="text-muted">&#x27f9;</span>
       <ConsoleOutput output={file.lastModified} />
     </ConsoleGroupInline>
     <ConsoleGroupInline>
       <ConsoleInput input={`${path}.name`} />
+      <span className="text-muted">&#x27f9;</span>
       <ConsoleOutput output={file.name} />
     </ConsoleGroupInline>
     <ConsoleGroupInline>
       <ConsoleInput input={`${path}.webkitRelativePath`} />
+      <span className="text-muted">&#x27f9;</span>
       <ConsoleOutput output={file.webkitRelativePath} />
     </ConsoleGroupInline>
     <ConsoleGroupInline>
       <ConsoleInput input={`${path}.size`} />
+      <span className="text-muted">&#x27f9;</span>
       <ConsoleOutput output={file.size} />
     </ConsoleGroupInline>
     <ConsoleGroupInline>
       <ConsoleInput input={`${path}.type`} />
+      <span className="text-muted">&#x27f9;</span>
       <ConsoleOutput output={file.type} />
     </ConsoleGroupInline>
   </Report>

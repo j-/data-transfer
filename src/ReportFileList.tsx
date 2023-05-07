@@ -4,6 +4,8 @@ import ConsoleInput from './ConsoleInput';
 import ConsoleOutput from './ConsoleOutput';
 import Report from './Report';
 import ReportFileListItem from './ReportFileListItem';
+import OrderedList from './OrderedList';
+import ListItem from './ListItem';
 
 type Props = {
   path: string;
@@ -16,21 +18,27 @@ const ReportFileList: React.FC<Props> = ({ path, files }) => (
     <div>
       <ConsoleGroupInline>
         <ConsoleInput input={path} />
+        <span className="text-muted">&#x27f9;</span>
         <ConsoleOutput output={files} />
       </ConsoleGroupInline>
       <ConsoleGroupInline>
         <ConsoleInput input={`${path}.length`} />
+        <span className="text-muted">&#x27f9;</span>
         <ConsoleOutput output={files.length} />
       </ConsoleGroupInline>
     </div>
-    {Array.from(files, (file, i) => (
-      <ReportFileListItem
-        key={`report-file-list-item-${i}`}
-        path={`${path}[${i}]`}
-        index={i}
-        file={file}
-      />
-    ))}
+    <OrderedList>
+      {Array.from(files, (file, i) => (
+        <ListItem key={`report-file-list-item-${i}`} value={i}>
+          <ReportFileListItem
+            key={`report-file-list-item-${i}`}
+            path={`${path}[${i}]`}
+            index={i}
+            file={file}
+          />
+        </ListItem>
+      ))}
+    </OrderedList>
   </Report>
 );
 

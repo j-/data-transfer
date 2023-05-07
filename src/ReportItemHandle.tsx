@@ -26,7 +26,7 @@ const ReportItemHandle: React.FC<Props> = ({ path, item }) => (
         return (
           <>
             <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.getAsFileSystemHandle()`} />
+              <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}`} />
               <span className="text-muted">&#x27f9;</span>
               <ConsoleOutput output={handle} />
             </ConsoleGroupInline>

@@ -10,9 +10,9 @@ import ListItem from './ListItem';
 import OrderedList from './OrderedList';
 import ReportItemFile from './ReportItemFile';
 
-const pushFile = false;
-const pushHandle = false;
-const pushEntry = false;
+const pushFile = true;
+const pushHandle = true;
+const pushEntry = true;
 
 export const generateDataTransferReport = (path: string, dt: DataTransfer, isSafe = false): React.ReactChild => {
   const children: React.ReactChild[] = [];
@@ -73,7 +73,7 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
             pushMultiline(children, label, data, item.type);
           }
         } else {
-          if (pushFile) {
+          if (pushFile && isSafe) {
             children.push(
               <ReportItemFile
                 key={`report-item-${i}-file`}
@@ -83,7 +83,7 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
               />
             );
           }
-          if (pushHandle) {
+          if (pushHandle && isSafe) {
             children.push(
               <ReportItemHandle
                 key={`report-item-${i}-handle`}
@@ -93,7 +93,7 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
               />
             );
           }
-          if (pushEntry) {
+          if (pushEntry && isSafe) {
             children.push(
               <ReportItemEntry
                 key={`report-item-${i}-entry`}

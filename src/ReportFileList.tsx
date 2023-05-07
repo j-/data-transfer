@@ -13,7 +13,7 @@ type Props = {
 };
 
 const ReportFileList: React.FC<Props> = ({ path, files }) => (
-  <Report>
+  <Report key='ReportFileList'>
     <h3 key="files" className="h3 my-5">Files</h3>
     <div>
       <ConsoleGroupInline>

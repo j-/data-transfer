@@ -6,8 +6,8 @@ import { generateDataTransferReport } from './generate-data-transfer-report';
 
 export const generateReport = (item: ClipboardEvent | DragEvent | DataTransfer): React.ReactChild => {
   if (isEvent(item)) {
-    return <Report>{generateEventReport('event', item)}</Report>;
+    return <Report key="generate-report-event-report">{generateEventReport('event', item)}</Report>;
   } else {
-    return <Report>{generateDataTransferReport('dt', item, true)}</Report>;
+    return <Report key="generate-report-data-transfer-report">{generateDataTransferReport('dt', item, true)}</Report>;
   }
 };

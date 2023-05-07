@@ -12,7 +12,7 @@ type Props = {
 };
 
 const ReportItemFile: React.FC<Props> = ({ path, index, item }) => (
-  <Report>
+  <Report key={`ReportItemFile-${index}`}>
     <br />
     <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.getAsFile`} />
@@ -24,7 +24,7 @@ const ReportItemFile: React.FC<Props> = ({ path, index, item }) => (
         const file = item.getAsFile();
         if (!file) {
           return (
-            <ConsoleGroupInline>
+            <ConsoleGroupInline key={`ReportItemFile-${index}-file-nullish`}>
               <ConsoleInput input={`${path}.getAsFile()`} />
               <span className="text-muted">&#x27f9;</span>
               <ConsoleOutput output={file} />
@@ -32,7 +32,7 @@ const ReportItemFile: React.FC<Props> = ({ path, index, item }) => (
           );
         }
         return (
-          <>
+          <React.Fragment key={`ReportItemFile-${index}-file-nonnull`}>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFile()`} />
               <span className="text-muted">&#x27f9;</span>
@@ -44,7 +44,7 @@ const ReportItemFile: React.FC<Props> = ({ path, index, item }) => (
               index={index}
               file={file}
             />
-          </>
+          </React.Fragment>
         );
       })()
     )}

@@ -10,8 +10,8 @@ type Props = {
   file: File;
 };
 
-const ReportFileListItem: React.FC<Props> = ({ path, file }) => (
-  <Report>
+const ReportFileListItem: React.FC<Props> = ({ path, index, file }) => (
+  <Report key={`ReportFileListItem-${index}`}>
     <ConsoleGroupInline>
       <ConsoleInput input={`${path}.lastModified`} />
       <span className="text-muted">&#x27f9;</span>

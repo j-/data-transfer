@@ -12,8 +12,8 @@ type Props = {
   item: DataTransferItem;
 };
 
-const ReportItemEntry: React.FC<Props> = ({ path, item }) => (
-  <Report>
+const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
+  <Report key={`ReportItemEntry-${index}`}>
     <br />
     <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.webkitGetAsEntry`} />
@@ -25,7 +25,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, item }) => (
         const entry = item.webkitGetAsEntry();
         if (entry == null) {
           return (
-            <ConsoleGroupInline>
+            <ConsoleGroupInline key={`ReportItemEntry-${index}-entry-nullish`}>
               <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
               <span className="text-muted">&#x27f9;</span>
               <ConsoleOutput output={entry} />
@@ -33,7 +33,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, item }) => (
           );
         }
         return (
-          <>
+          <React.Fragment key={`ReportItemEntry-${index}-entry-nonnull`}>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
               <span className="text-muted">&#x27f9;</span>
@@ -64,7 +64,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, item }) => (
               <ConsoleInput input={`getFilesFromEntry(${path}.webkitGetAsEntry())`} />
               <ConsoleOutput output={Promise.resolve().then(() => getFilesFromEntry(entry)).then((files) => files.map((file) => file.name))} />
             </ConsoleGroupMultiline>
-          </>
+          </React.Fragment>
         );
       })()
     )}

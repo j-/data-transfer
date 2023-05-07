@@ -12,8 +12,8 @@ type Props = {
 
 const hellip = '\u2026';
 
-const ReportItemHandle: React.FC<Props> = ({ path, item }) => (
-  <Report>
+const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
+  <Report key={`ReportItemHandle-${index}`}>
     <br />
     <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.getAsFileSystemHandle`} />
@@ -24,7 +24,7 @@ const ReportItemHandle: React.FC<Props> = ({ path, item }) => (
       (() => {
         const handle = item.getAsFileSystemHandle();
         return (
-          <>
+          <React.Fragment key={`ReportItemHandle-${index}-handle`}>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}`} />
               <span className="text-muted">&#x27f9;</span>
@@ -40,7 +40,7 @@ const ReportItemHandle: React.FC<Props> = ({ path, item }) => (
               <span className="text-muted">&#x27f9;</span>
               <ConsoleOutput output={handle.then((entry) => entry.name)} />
             </ConsoleGroupInline>
-          </>
+          </React.Fragment>
         );
       })()
     )}

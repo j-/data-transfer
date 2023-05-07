@@ -17,6 +17,7 @@ export const generateEventReport = (path: string, event: ClipboardEvent | DragEv
     children.push(
       <ConsoleGroupInline key={`${input}-${output}`}>
         <ConsoleInput input={input} />
+        <span className="text-muted">&#x27f9;</span>
         <ConsoleOutput output={output} />
       </ConsoleGroupInline>
     );

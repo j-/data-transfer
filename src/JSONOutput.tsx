@@ -39,11 +39,22 @@ export const JSONOutputArray: React.FC<Props<Array<any>>> = ({ value }) => {
   )
 };
 
+export const JSONOutputObject: React.FC<Props<any>> = ({ value }) => (
+  <span className="JSONOutputObject">
+    <span className="JSONOutput-symbol">{`[object `}</span>
+    <span className="JSONOutputObject-value">
+      {String(value).replace(/^\[object |\]$/g, '')}
+    </span>
+    <span className="JSONOutput-symbol">{`]`}</span>
+  </span>
+);
+
 const JSONOutput: React.FC<Props> = ({ value }) => (
   Array.isArray(value) ? <JSONOutputArray value={value} /> :
   typeof value === 'string' ? <JSONOutputString value={value} /> :
   typeof value === 'number' ? <JSONOutputNumber value={value} /> :
   typeof value === 'boolean' ? <JSONOutputBoolean value={value} /> :
+  String(value).startsWith('[object') ? <JSONOutputObject value={value} /> :
   <code>{String(value)}</code>
 );
 

@@ -11,6 +11,8 @@ import OrderedList from './OrderedList';
 import ReportItemFile from './ReportItemFile';
 
 const pushFile = false;
+const pushHandle = false;
+const pushEntry = false;
 
 export const generateDataTransferReport = (path: string, dt: DataTransfer, isSafe = false): React.ReactChild => {
   const children: React.ReactChild[] = [];
@@ -81,22 +83,26 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
               />
             );
           }
-          children.push(
-            <ReportItemHandle
-              key={`report-item-${i}-handle`}
-              path={subpath}
-              index={i}
-              item={item}
-            />
-          );
-          children.push(
-            <ReportItemEntry
-              key={`report-item-${i}-entry`}
-              path={subpath}
-              index={i}
-              item={item}
-            />
-          );
+          if (pushHandle) {
+            children.push(
+              <ReportItemHandle
+                key={`report-item-${i}-handle`}
+                path={subpath}
+                index={i}
+                item={item}
+              />
+            );
+          }
+          if (pushEntry) {
+            children.push(
+              <ReportItemEntry
+                key={`report-item-${i}-entry`}
+                path={subpath}
+                index={i}
+                item={item}
+              />
+            );
+          }
         }
 
         listItems.push(

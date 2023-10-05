@@ -33,12 +33,12 @@ const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.kind`} />
               <span className="text-muted">&#x27f9;</span>
-              <ConsoleOutput output={handle.then((entry) => entry.kind)} />
+              <ConsoleOutput output={handle.then((entry) => entry?.kind)} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.name`} />
               <span className="text-muted">&#x27f9;</span>
-              <ConsoleOutput output={handle.then((entry) => entry.name)} />
+              <ConsoleOutput output={handle.then((entry) => entry?.name)} />
             </ConsoleGroupInline>
           </React.Fragment>
         );

@@ -31,12 +31,12 @@
   "main": "index.html",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/j-/data-transfer-report.git"
+    "url": "git+https://github.com/j-/data-transfer.git"
   },
   "author": "J Hoeks <j@skeoh.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/j-/data-transfer-report/issues"
+    "url": "https://github.com/j-/data-transfer/issues"
   },
   "homepage": "https://data-transfer.io"
 }

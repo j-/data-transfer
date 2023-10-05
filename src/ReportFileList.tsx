@@ -14,16 +14,14 @@ type Props = {
 
 const ReportFileList: React.FC<Props> = ({ path, files }) => (
   <Report key='ReportFileList'>
-    <h3 key="files" className="h3 my-5">Files</h3>
+    <h3 key="files" className="h3 my-5 text-xl font-bold">Files</h3>
     <div>
       <ConsoleGroupInline>
         <ConsoleInput input={path} />
-        <span className="text-muted align-top">&#x27f9;</span>
         <ConsoleOutput output={files} />
       </ConsoleGroupInline>
       <ConsoleGroupInline>
         <ConsoleInput input={`${path}.length`} />
-        <span className="text-muted align-top">&#x27f9;</span>
         <ConsoleOutput output={files.length} />
       </ConsoleGroupInline>
     </div>

@@ -1,12 +1,12 @@
 import React from 'react';
-import './ConsoleInput.css';
+import styles from './ConsoleInput.module.css';
 
 type Props = {
   input: string;
-}
+};
 
 const ConsoleInput: React.FC<Props> = ({ input }) => (
-  <pre className="ConsoleInput">
+  <pre className={styles.ConsoleInput}>
     {input}
   </pre>
 );

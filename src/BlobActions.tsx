@@ -36,9 +36,9 @@ const BlobActions: React.FC<Props> = ({ type, value }) => {
   }, [blob]);
 
   return (
-    <div className="BlobActions d-flex gap-2">
+    <div className="BlobActions flex gap-2">
       <button
-        className="btn btn-light btn-sm"
+        className="btn btn-neutral btn-sm normal-case"
         type="button"
         onClick={handleClickOpen}
       >
@@ -46,7 +46,7 @@ const BlobActions: React.FC<Props> = ({ type, value }) => {
       </button>
 
       {type && <button
-        className="btn btn-light btn-sm"
+        className="btn btn-neutral btn-sm normal-case"
         type="button"
         onClick={handleClickCopyPlain}
       >
@@ -54,7 +54,7 @@ const BlobActions: React.FC<Props> = ({ type, value }) => {
       </button>}
 
       {type && type !== 'text/plain' && <button
-        className="btn btn-light btn-sm"
+        className="btn btn-neutral btn-sm normal-case"
         type="button"
         onClick={handleClickCopyType}
       >

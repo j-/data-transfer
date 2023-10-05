@@ -1,6 +1,6 @@
 import React from 'react';
 import ConsoleGroupInline from './ConsoleGroupInline';
-import ConsoleGroupMultiline from './ConsoleGroupMultiline';
+import DefinitionPairMultiline from './DefinitionPairMultiline';
 import ConsoleInput from './ConsoleInput';
 import ConsoleOutput from './ConsoleOutput';
 import { getFilesFromEntry } from './get-files-from-entry';
@@ -17,7 +17,6 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
     <br />
     <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.webkitGetAsEntry`} />
-      <span className="text-muted align-top">&#x27f9;</span>
       <ConsoleOutput output={typeof item.webkitGetAsEntry} />
     </ConsoleGroupInline>
     {typeof item.webkitGetAsEntry === 'function' && window.isSecureContext && (
@@ -27,7 +26,6 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
           return (
             <ConsoleGroupInline key={`ReportItemEntry-${index}-entry-nullish`}>
               <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
-              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry} />
             </ConsoleGroupInline>
           );
@@ -36,34 +34,29 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
           <React.Fragment key={`ReportItemEntry-${index}-entry-nonnull`}>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
-              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().isFile`} />
-              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry.isFile} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().isDirectory`} />
-              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry.isDirectory} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().name`} />
-              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry.name} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().fullPath`} />
-              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry.fullPath} />
             </ConsoleGroupInline>
             <br />
-            <ConsoleGroupMultiline>
-              <ConsoleInput input={`getFilesFromEntry(${path}.webkitGetAsEntry())`} />
-              <ConsoleOutput output={Promise.resolve().then(() => getFilesFromEntry(entry)).then((files) => files.map((file) => file.name))} />
-            </ConsoleGroupMultiline>
+            <DefinitionPairMultiline
+              label={`getFilesFromEntry(${path}.webkitGetAsEntry())`}
+              value={Promise.resolve().then(() => getFilesFromEntry(entry)).then((files) => files.map((file) => file.name))}
+            />
           </React.Fragment>
         );
       })()

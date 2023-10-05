@@ -2,16 +2,17 @@ import React from 'react';
 import isPromise from 'is-promise';
 import JSONOutput from './JSONOutput';
 import BlobActions from './BlobActions';
-import './ConsoleOutput.css';
+import style from './ConsoleOutput.module.css';
+import classNames from 'classnames';
 
 export type ConsoleOutputType = any;
 
-type Props = {
+type Props = React.HTMLAttributes<HTMLDivElement> & {
   type?: string;
   output: ConsoleOutputType;
-}
+};
 
-const ConsoleOutput: React.FC<Props> = ({ type, output }) => {
+const ConsoleOutput: React.FC<Props> = ({ type, output, className, ...props }) => {
   const initialResult = isPromise(output) ? <>&hellip;</> : <JSONOutput value={output} />;
   const [contents, setContents] = React.useState(initialResult);
   const [result, setResult] = React.useState(output);
@@ -37,8 +38,8 @@ const ConsoleOutput: React.FC<Props> = ({ type, output }) => {
   }, [output, setContents]);
 
   return (
-    <div className="ConsoleOutput">
-      <pre className="ConsoleOutput-contents">{contents}</pre>
+    <div className={classNames(style.ConsoleOutput, className)} {...props}>
+      <pre className={style.ConsoleOutputContents}>{contents}</pre>
       {type && result && <BlobActions value={result} type={type} />}
     </div>
   );

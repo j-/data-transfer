@@ -17,7 +17,6 @@ export const generateEventReport = (path: string, event: ClipboardEvent | DragEv
     children.push(
       <ConsoleGroupInline key={`${input}-${output}`}>
         <ConsoleInput input={input} />
-        <span className="text-muted align-top">&#x27f9;</span>
         <ConsoleOutput output={output} />
       </ConsoleGroupInline>
     );
@@ -27,7 +26,7 @@ export const generateEventReport = (path: string, event: ClipboardEvent | DragEv
     return <>{children}</>;
   };
 
-  children.push(<h3 key="basics" className="my-5">Basics</h3>);
+  children.push(<h3 key="basics" className="my-5 text-lg font-bold">Basics</h3>);
 
   pushInline(`${path}.type`, event.type);
   pushInline(`${path}.timeStamp`, event.timeStamp);

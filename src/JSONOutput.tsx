@@ -1,20 +1,20 @@
 import React from 'react';
-import './JSONOutput.css';
+import styles from './JSONOutput.module.css';
 
 export interface Props<T = any> {
   value: T;
 }
 
 export const JSONOutputString: React.FC<Props<string>> = ({ value }) => (
-  <code className="JSONOutputString">{JSON.stringify(value)}</code>
+  <code className={styles.JSONOutputString}>{JSON.stringify(value)}</code>
 );
 
 export const JSONOutputNumber: React.FC<Props<number>> = ({ value }) => (
-  <code className="JSONOutputNumber">{value.toString()}</code>
+  <code className={styles.JSONOutputNumber}>{value.toString()}</code>
 );
 
 export const JSONOutputBoolean: React.FC<Props<boolean>> = ({ value }) => (
-  <code className="JSONOutputBoolean">{value.toString()}</code>
+  <code className={styles.JSONOutputBoolean}>{value.toString()}</code>
 );
 
 export const JSONOutputArray: React.FC<Props<Array<any>>> = ({ value }) => {
@@ -26,26 +26,26 @@ export const JSONOutputArray: React.FC<Props<Array<any>>> = ({ value }) => {
     );
     if (i < value.length - 1) {
       children.push(
-        <span className="JSONOutput-symbol" key={i * 2 + 1}>{`, `}</span>
+        <span className={styles.JSONOutputSymbol} key={i * 2 + 1}>{`, `}</span>
       );
     }
   }
   return (
-    <span className="JSONOutputArray">
-      <span className="JSONOutput-symbol">{`[`}</span>
+    <span className={styles.JSONOutputArray}>
+      <span className={styles.JSONOutputSymbol}>{`[`}</span>
       {children}
-      <span className="JSONOutput-symbol">{`]`}</span>
+      <span className={styles.JSONOutputSymbol}>{`]`}</span>
     </span>
   )
 };
 
 export const JSONOutputObject: React.FC<Props<any>> = ({ value }) => (
-  <span className="JSONOutputObject">
-    <span className="JSONOutput-symbol">{`[object `}</span>
-    <span className="JSONOutputObject-value">
+  <span className={styles.JSONOutputObject}>
+    <span className={styles.JSONOutputSymbol}>{`[object `}</span>
+    <span className={styles.JSONOutputObjectValue}>
       {String(value).replace(/^\[object |\]$/g, '')}
     </span>
-    <span className="JSONOutput-symbol">{`]`}</span>
+    <span className={styles.JSONOutputSymbol}>{`]`}</span>
   </span>
 );
 

@@ -22,29 +22,27 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="App container my-5">
-      <div className="my-5 d-flex gap-3">
-        <img src="/favicon.svg" style={{ height: '3rem', aspectRatio: '1/1' }} />
+    <div className="container mx-auto my-16">
+      <div className="my-8 flex gap-1 sm:gap-2 text-xl sm:text-3xl">
+        <img src="/favicon.svg" className="w-[1em]" />
         <h1>data-transfer.io</h1>
       </div>
 
       <textarea
-        className="form-control my-5"
-        style={{ height: '4em', minHeight: '4em' }}
+        className="my-5 h-[4.75rem] min-h-[4.75rem] w-96 textarea textarea-bordered"
         defaultValue=""
-        placeholder="Paste something into this textarea or this window, or drop something onto this window&hellip;"
+        placeholder="Paste something into this textarea or this window,&#13;or drop something onto this window&hellip;"
       />
 
       {report && (
         <>
-          <h2 className="my-3">Output</h2>
+          <h2 className="my-3 text-xl font-bold">Output</h2>
           <div className="my-5">{report}</div>
         </>
       )}
 
-      <h2 className="my-3">Support</h2>
+      <h2 className="my-3 text-xl font-bold">Support</h2>
       <div className="my-5"><Support /></div>
-
     </div>
   );
 };

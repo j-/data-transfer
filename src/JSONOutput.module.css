@@ -1,0 +1,23 @@
+.JSONOutput {
+  @apply font-mono leading-4 inline-block;
+}
+
+.JSONOutputString {
+  @apply JSONOutput text-amber-600 whitespace-pre-wrap;
+}
+
+.JSONOutputNumber {
+  @apply JSONOutput text-emerald-600;
+}
+
+.JSONOutputBoolean {
+  @apply JSONOutput text-violet-600;
+}
+
+.JSONOutputSymbol {
+  @apply JSONOutput text-gray-300;
+}
+
+.JSONOutputObjectValue {
+  @apply JSONOutput text-fuchsia-600;
+}

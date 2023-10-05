@@ -5,7 +5,7 @@ import ConsoleOutput, { ConsoleOutputType } from './ConsoleOutput';
 import ReportFileList from './ReportFileList';
 import ReportItemHandle from './ReportItemHandle';
 import ReportItemEntry from './ReportItemEntry';
-import ConsoleGroupMultiline from './ConsoleGroupMultiline';
+import DefinitionPairMultiline from './DefinitionPairMultiline';
 import ListItem from './ListItem';
 import OrderedList from './OrderedList';
 import ReportItemFile from './ReportItemFile';
@@ -25,7 +25,6 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
     children.push(
       <ConsoleGroupInline key={`${input}-${output}`}>
         <ConsoleInput input={input} />
-        <span className="text-muted align-top">&#x27f9;</span>
         <ConsoleOutput output={output} type={type} />
       </ConsoleGroupInline>
     );
@@ -33,10 +32,12 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
 
   const pushMultiline = (children: React.ReactChild[], input: string, output: ConsoleOutputType, type?: string): void => {
     children.push(
-      <ConsoleGroupMultiline key={`${input}-${output}`}>
-        <ConsoleInput input={input} />
-        <ConsoleOutput output={output} type={type} />
-      </ConsoleGroupMultiline>
+      <DefinitionPairMultiline
+        key={`${input}-${output}`}
+        label={input}
+        value={output}
+        type={type}
+      />
     );
   };
 
@@ -48,7 +49,7 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
   pushInline(children, `${path}.effectAllowed`, dt.effectAllowed);
   pushInline(children, `${path}.types`, dt.types);
 
-  children.push(<h3 key="dt-items-heading" className="my-5">Items</h3>);
+  children.push(<h3 key="dt-items-heading text-lg font-bold" className="my-5">Items</h3>);
 
   if (dt.items) {
     pushInline(children, `${path}.items`, dt.items);

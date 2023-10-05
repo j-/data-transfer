@@ -17,7 +17,7 @@ const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
     <br />
     <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.getAsFileSystemHandle`} />
-      <span className="text-muted">&#x27f9;</span>
+      <span className="text-muted align-top">&#x27f9;</span>
       <ConsoleOutput output={typeof item.getAsFileSystemHandle} />
     </ConsoleGroupInline>
     {typeof item.getAsFileSystemHandle === 'function' && window.isSecureContext && (
@@ -27,17 +27,17 @@ const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
           <React.Fragment key={`ReportItemHandle-${index}-handle`}>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={handle} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.kind`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={handle.then((entry) => entry?.kind)} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.name`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={handle.then((entry) => entry?.name)} />
             </ConsoleGroupInline>
           </React.Fragment>

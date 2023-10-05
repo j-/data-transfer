@@ -25,7 +25,7 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
     children.push(
       <ConsoleGroupInline key={`${input}-${output}`}>
         <ConsoleInput input={input} />
-        <span className="text-muted">&#x27f9;</span>
+        <span className="text-muted align-top">&#x27f9;</span>
         <ConsoleOutput output={output} type={type} />
       </ConsoleGroupInline>
     );

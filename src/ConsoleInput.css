@@ -1,4 +1,5 @@
 .ConsoleInput {
+  display: inline-block;
   font-weight: bold;
   color: inherit;
   margin: 0.25em;

@@ -18,12 +18,12 @@ const ReportFileList: React.FC<Props> = ({ path, files }) => (
     <div>
       <ConsoleGroupInline>
         <ConsoleInput input={path} />
-        <span className="text-muted">&#x27f9;</span>
+        <span className="text-muted align-top">&#x27f9;</span>
         <ConsoleOutput output={files} />
       </ConsoleGroupInline>
       <ConsoleGroupInline>
         <ConsoleInput input={`${path}.length`} />
-        <span className="text-muted">&#x27f9;</span>
+        <span className="text-muted align-top">&#x27f9;</span>
         <ConsoleOutput output={files.length} />
       </ConsoleGroupInline>
     </div>

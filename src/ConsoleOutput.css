@@ -1,4 +1,9 @@
+.ConsoleGroupInline .ConsoleOutput {
+  display: inline-block;
+}
+
 .ConsoleOutput-contents {
+  display: inline-block;
   font-weight: normal;
   color: inherit;
   margin: 0.25em;

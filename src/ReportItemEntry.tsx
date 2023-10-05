@@ -17,7 +17,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
     <br />
     <ConsoleGroupInline>
       <ConsoleInput input={`typeof ${path}.webkitGetAsEntry`} />
-      <span className="text-muted">&#x27f9;</span>
+      <span className="text-muted align-top">&#x27f9;</span>
       <ConsoleOutput output={typeof item.webkitGetAsEntry} />
     </ConsoleGroupInline>
     {typeof item.webkitGetAsEntry === 'function' && window.isSecureContext && (
@@ -27,7 +27,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
           return (
             <ConsoleGroupInline key={`ReportItemEntry-${index}-entry-nullish`}>
               <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry} />
             </ConsoleGroupInline>
           );
@@ -36,27 +36,27 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
           <React.Fragment key={`ReportItemEntry-${index}-entry-nonnull`}>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().isFile`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry.isFile} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().isDirectory`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry.isDirectory} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().name`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry.name} />
             </ConsoleGroupInline>
             <ConsoleGroupInline>
               <ConsoleInput input={`${path}.webkitGetAsEntry().fullPath`} />
-              <span className="text-muted">&#x27f9;</span>
+              <span className="text-muted align-top">&#x27f9;</span>
               <ConsoleOutput output={entry.fullPath} />
             </ConsoleGroupInline>
             <br />

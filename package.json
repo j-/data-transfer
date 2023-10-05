@@ -1,5 +1,5 @@
 {
-  "name": "data-transfer-report",
+  "name": "data-transfer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -31,10 +31,10 @@
     "type": "git",
     "url": "git+https://github.com/j-/data-transfer-report.git"
   },
-  "author": "Jamie Hoeks <j@skeoh.com>",
+  "author": "J Hoeks <j@skeoh.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/j-/data-transfer-report/issues"
   },
-  "homepage": "https://skeoh.com/data-transfer-report"
+  "homepage": "https://data-transfer.io"
 }

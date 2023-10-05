@@ -23,7 +23,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App container my-5">
-      <h1 className="my-5">Data transfer</h1>
+      <h1 className="my-5">data-transfer.io</h1>
       <textarea
         className="form-control my-5"
         style={{ height: '4em', minHeight: '4em' }}

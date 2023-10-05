@@ -1,5 +1,5 @@
 .JSONOutput {
-  @apply font-mono leading-4 inline-block;
+  @apply font-mono leading-4;
 }
 
 .JSONOutputString {

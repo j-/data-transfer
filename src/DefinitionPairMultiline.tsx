@@ -13,7 +13,7 @@ const DefinitionPairMultiline: React.FC<DefinitionPairMultilineProps> = ({ label
       {label}
     </div>
 
-    <div className="line-clamp-3 whitespace-pre-wrap break-words my-2 leading-8">
+    <div className="line-clamp-3 whitespace-pre-wrap break-words my-2 leading-6">
       <JSONOutput value={value} />
     </div>
 

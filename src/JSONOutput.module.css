@@ -15,7 +15,7 @@
 }
 
 .JSONOutputSymbol {
-  @apply JSONOutput text-gray-300;
+  @apply JSONOutput text-gray-600;
 }
 
 .JSONOutputObjectValue {

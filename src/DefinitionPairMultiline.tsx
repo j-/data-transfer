@@ -9,7 +9,7 @@ export type DefinitionPairMultilineProps = {
 
 const DefinitionPairMultiline: React.FC<DefinitionPairMultilineProps> = ({ label, type, value }) => (
   <div>
-    <div className="text-gray-400 font-mono">
+    <div className="text-gray-600 font-mono">
       {label}
     </div>
 

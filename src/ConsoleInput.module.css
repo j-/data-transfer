@@ -1,4 +1,0 @@
-.ConsoleInput {
-  @apply inline-block h-4 leading-4 font-bold font-mono text-inherit whitespace-pre-wrap;
-  @apply after:content-['\27f9'] after:mx-2 after:text-gray-400;
-}

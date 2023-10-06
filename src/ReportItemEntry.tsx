@@ -1,8 +1,6 @@
 import React from 'react';
-import ConsoleGroupInline from './ConsoleGroupInline';
+import DefinitionPairInline from './DefinitionPairInline';
 import DefinitionPairMultiline from './DefinitionPairMultiline';
-import ConsoleInput from './ConsoleInput';
-import ConsoleOutput from './ConsoleOutput';
 import { getFilesFromEntry } from './get-files-from-entry';
 import Report from './Report';
 
@@ -15,43 +13,26 @@ type Props = {
 const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
   <Report key={`ReportItemEntry-${index}`}>
     <br />
-    <ConsoleGroupInline>
-      <ConsoleInput input={`typeof ${path}.webkitGetAsEntry`} />
-      <ConsoleOutput output={typeof item.webkitGetAsEntry} />
-    </ConsoleGroupInline>
+    <DefinitionPairInline label={`typeof ${path}.webkitGetAsEntry`} value={typeof item.webkitGetAsEntry} />
     {typeof item.webkitGetAsEntry === 'function' && window.isSecureContext && (
       (() => {
         const entry = item.webkitGetAsEntry();
         if (entry == null) {
           return (
-            <ConsoleGroupInline key={`ReportItemEntry-${index}-entry-nullish`}>
-              <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
-              <ConsoleOutput output={entry} />
-            </ConsoleGroupInline>
+            <DefinitionPairInline
+              key={`ReportItemEntry-${index}-entry-nullish`}
+              label={`${path}.webkitGetAsEntry()`}
+              value={entry}
+            />
           );
         }
         return (
           <React.Fragment key={`ReportItemEntry-${index}-entry-nonnull`}>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.webkitGetAsEntry()`} />
-              <ConsoleOutput output={entry} />
-            </ConsoleGroupInline>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.webkitGetAsEntry().isFile`} />
-              <ConsoleOutput output={entry.isFile} />
-            </ConsoleGroupInline>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.webkitGetAsEntry().isDirectory`} />
-              <ConsoleOutput output={entry.isDirectory} />
-            </ConsoleGroupInline>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.webkitGetAsEntry().name`} />
-              <ConsoleOutput output={entry.name} />
-            </ConsoleGroupInline>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.webkitGetAsEntry().fullPath`} />
-              <ConsoleOutput output={entry.fullPath} />
-            </ConsoleGroupInline>
+            <DefinitionPairInline label={`${path}.webkitGetAsEntry()`} value={entry} />
+            <DefinitionPairInline label={`${path}.webkitGetAsEntry().isFile`} value={entry.isFile} />
+            <DefinitionPairInline label={`${path}.webkitGetAsEntry().isDirectory`} value={entry.isDirectory} />
+            <DefinitionPairInline label={`${path}.webkitGetAsEntry().name`} value={entry.name} />
+            <DefinitionPairInline label={`${path}.webkitGetAsEntry().fullPath`} value={entry.fullPath} />
             <br />
             <DefinitionPairMultiline
               label={`getFilesFromEntry(${path}.webkitGetAsEntry())`}

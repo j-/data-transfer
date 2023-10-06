@@ -1,7 +1,5 @@
 import React from 'react';
-import ConsoleGroupInline from './ConsoleGroupInline';
-import ConsoleInput from './ConsoleInput';
-import ConsoleOutput from './ConsoleOutput';
+import DefinitionPairInline from './DefinitionPairInline';
 import Report from './Report';
 
 type Props = {
@@ -12,26 +10,11 @@ type Props = {
 
 const ReportFileListItem: React.FC<Props> = ({ path, index, file }) => (
   <Report key={`ReportFileListItem-${index}`}>
-    <ConsoleGroupInline>
-      <ConsoleInput input={`${path}.lastModified`} />
-      <ConsoleOutput output={file.lastModified} />
-    </ConsoleGroupInline>
-    <ConsoleGroupInline>
-      <ConsoleInput input={`${path}.name`} />
-      <ConsoleOutput output={file.name} />
-    </ConsoleGroupInline>
-    <ConsoleGroupInline>
-      <ConsoleInput input={`${path}.webkitRelativePath`} />
-      <ConsoleOutput output={file.webkitRelativePath} />
-    </ConsoleGroupInline>
-    <ConsoleGroupInline>
-      <ConsoleInput input={`${path}.size`} />
-      <ConsoleOutput output={file.size} />
-    </ConsoleGroupInline>
-    <ConsoleGroupInline>
-      <ConsoleInput input={`${path}.type`} />
-      <ConsoleOutput output={file.type} />
-    </ConsoleGroupInline>
+    <DefinitionPairInline label={`${path}.lastModified`} value={file.lastModified} />
+    <DefinitionPairInline label={`${path}.name`} value={file.name} />
+    <DefinitionPairInline label={`${path}.webkitRelativePath`} value={file.webkitRelativePath} />
+    <DefinitionPairInline label={`${path}.size`} value={file.size} />
+    <DefinitionPairInline label={`${path}.type`} value={file.type} />
   </Report>
 );
 

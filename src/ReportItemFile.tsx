@@ -1,7 +1,5 @@
 import React from 'react';
-import ConsoleGroupInline from './ConsoleGroupInline';
-import ConsoleInput from './ConsoleInput';
-import ConsoleOutput from './ConsoleOutput';
+import DefinitionPairInline from './DefinitionPairInline';
 import Report from './Report';
 import ReportFileListItem from './ReportFileListItem';
 
@@ -14,27 +12,22 @@ type Props = {
 const ReportItemFile: React.FC<Props> = ({ path, index, item }) => (
   <Report key={`ReportItemFile-${index}`}>
     <br />
-    <ConsoleGroupInline>
-      <ConsoleInput input={`typeof ${path}.getAsFile`} />
-      <ConsoleOutput output={typeof item.getAsFile} />
-    </ConsoleGroupInline>
+    <DefinitionPairInline label={`typeof ${path}.getAsFile`} value={typeof item.getAsFile} />
     {typeof item.getAsFile === 'function' && window.isSecureContext && (
       (() => {
         const file = item.getAsFile();
         if (!file) {
           return (
-            <ConsoleGroupInline key={`ReportItemFile-${index}-file-nullish`}>
-              <ConsoleInput input={`${path}.getAsFile()`} />
-              <ConsoleOutput output={file} />
-            </ConsoleGroupInline>
+            <DefinitionPairInline
+              key={`ReportItemFile-${index}-file-nullish`}
+              label={`${path}.getAsFile()`}
+              value={file}
+            />
           );
         }
         return (
           <React.Fragment key={`ReportItemFile-${index}-file-nonnull`}>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.getAsFile()`} />
-              <ConsoleOutput output={file} />
-            </ConsoleGroupInline>
+            <DefinitionPairInline label={`${path}.getAsFile()`} value={file} />
             <ReportFileListItem
               key={`report-item-list-item-${index}-file`}
               path={`${path}.getAsFile()`}

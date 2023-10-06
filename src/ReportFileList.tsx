@@ -1,7 +1,5 @@
 import React from 'react';
-import ConsoleGroupInline from './ConsoleGroupInline';
-import ConsoleInput from './ConsoleInput';
-import ConsoleOutput from './ConsoleOutput';
+import DefinitionPairInline from './DefinitionPairInline';
 import Report from './Report';
 import ReportFileListItem from './ReportFileListItem';
 import OrderedList from './OrderedList';
@@ -16,14 +14,8 @@ const ReportFileList: React.FC<Props> = ({ path, files }) => (
   <Report key='ReportFileList'>
     <h3 key="files" className="h3 my-5 text-xl font-bold">Files</h3>
     <div>
-      <ConsoleGroupInline>
-        <ConsoleInput input={path} />
-        <ConsoleOutput output={files} />
-      </ConsoleGroupInline>
-      <ConsoleGroupInline>
-        <ConsoleInput input={`${path}.length`} />
-        <ConsoleOutput output={files.length} />
-      </ConsoleGroupInline>
+      <DefinitionPairInline label={path} value={files} />
+      <DefinitionPairInline label={`${path}.length`} value={files.length} />
     </div>
     <OrderedList>
       {Array.from(files, (file, i) => (

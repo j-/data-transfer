@@ -1,7 +1,5 @@
 import React from 'react';
-import ConsoleGroupInline from './ConsoleGroupInline';
-import ConsoleInput from './ConsoleInput';
-import ConsoleOutput from './ConsoleOutput';
+import DefinitionPairInline from './DefinitionPairInline';
 import Report from './Report';
 
 type Props = {
@@ -15,27 +13,15 @@ const hellip = '\u2026';
 const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
   <Report key={`ReportItemHandle-${index}`}>
     <br />
-    <ConsoleGroupInline>
-      <ConsoleInput input={`typeof ${path}.getAsFileSystemHandle`} />
-      <ConsoleOutput output={typeof item.getAsFileSystemHandle} />
-    </ConsoleGroupInline>
+    <DefinitionPairInline label={`typeof ${path}.getAsFileSystemHandle`} value={typeof item.getAsFileSystemHandle} />
     {typeof item.getAsFileSystemHandle === 'function' && window.isSecureContext && (
       (() => {
         const handle = item.getAsFileSystemHandle();
         return (
           <React.Fragment key={`ReportItemHandle-${index}-handle`}>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}`} />
-              <ConsoleOutput output={handle} />
-            </ConsoleGroupInline>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.kind`} />
-              <ConsoleOutput output={handle.then((entry) => entry?.kind)} />
-            </ConsoleGroupInline>
-            <ConsoleGroupInline>
-              <ConsoleInput input={`${path}.getAsFileSystemHandle()${hellip}.name`} />
-              <ConsoleOutput output={handle.then((entry) => entry?.name)} />
-            </ConsoleGroupInline>
+            <DefinitionPairInline label={`${path}.getAsFileSystemHandle()${hellip}`} value={handle} />
+            <DefinitionPairInline label={`${path}.getAsFileSystemHandle()${hellip}.kind`} value={handle.then((entry) => entry?.kind)} />
+            <DefinitionPairInline label={`${path}.getAsFileSystemHandle()${hellip}.name`} value={handle.then((entry) => entry?.name)} />
           </React.Fragment>
         );
       })()

@@ -1,7 +1,5 @@
 import React from 'react';
-import ConsoleGroupInline from './ConsoleGroupInline';
-import ConsoleInput from './ConsoleInput';
-import ConsoleOutput, { ConsoleOutputType } from './ConsoleOutput';
+import DefinitionPairInline from './DefinitionPairInline';
 import { isClipboardEvent, isDragEvent, isSafeEvent } from './is-event';
 import { generateDataTransferReport } from './generate-data-transfer-report';
 
@@ -13,12 +11,13 @@ export const generateEventReport = (path: string, event: ClipboardEvent | DragEv
     console.dir(event);
   }
 
-  const pushInline = (input: string, output: ConsoleOutputType): void => {
+  const pushInline = (input: string, output: any): void => {
     children.push(
-      <ConsoleGroupInline key={`${input}-${output}`}>
-        <ConsoleInput input={input} />
-        <ConsoleOutput output={output} />
-      </ConsoleGroupInline>
+      <DefinitionPairInline
+        key={`${input}-${output}`}
+        label={input}
+        value={output}
+      />
     );
   };
 

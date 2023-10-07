@@ -24,7 +24,14 @@ const App: React.FC = () => {
   return (
     <div className="container mx-auto my-16">
       <div className="my-8 flex gap-1 sm:gap-2 text-xl sm:text-3xl">
-        <img src="/favicon.svg" className="w-[1em]" />
+        <img
+          src="/favicon.svg"
+          className="w-[1em]"
+          width={16}
+          height={16}
+          alt="data-transfer.io icon"
+          role="presentation"
+        />
         <h1>data-transfer.io</h1>
       </div>
 

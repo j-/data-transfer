@@ -20,4 +20,5 @@ RUN npm run build
 RUN npm prune --production
 
 FROM nginx:stable-alpine
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=builder /tmp/dist /usr/share/nginx/html

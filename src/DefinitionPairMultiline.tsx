@@ -1,5 +1,5 @@
-import JSONOutput from './JSONOutput';
 import BlobActions from './BlobActions';
+import MaybeJSONOutput from './MaybeJSONOutput';
 
 export type DefinitionPairMultilineProps = {
   label: string;
@@ -14,7 +14,7 @@ const DefinitionPairMultiline: React.FC<DefinitionPairMultilineProps> = ({ label
     </div>
 
     <div className="line-clamp-3 whitespace-pre-wrap break-words my-2 leading-6">
-      <JSONOutput value={value} />
+      <MaybeJSONOutput value={value} />
     </div>
 
     <div className="flex flex-row">

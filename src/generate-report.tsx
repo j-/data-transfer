@@ -8,6 +8,6 @@ export const generateReport = (item: ClipboardEvent | DragEvent | DataTransfer):
   if (isEvent(item)) {
     return <Report key="generate-report-event-report">{generateEventReport('event', item)}</Report>;
   } else {
-    return <Report key="generate-report-data-transfer-report">{generateDataTransferReport('dt', item, true)}</Report>;
+    return <Report key="generate-report-data-transfer-report">{generateDataTransferReport('dt', null, item, true)}</Report>;
   }
 };

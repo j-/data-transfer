@@ -12,11 +12,11 @@ const pushFile = true;
 const pushHandle = true;
 const pushEntry = true;
 
-export const generateDataTransferReport = (path: string, dt: DataTransfer, isSafe = false): React.ReactChild => {
+export const generateDataTransferReport = (path: string, event: Event | null, dt: DataTransfer, isSafe = false): React.ReactChild => {
   const children: React.ReactChild[] = [];
 
   if (isSafe) {
-    console.dir(dt);
+    console.dir(event, dt);
   }
 
   const pushInline = (children: React.ReactChild[], input: string, output: any, type?: string): void => {
@@ -67,7 +67,11 @@ export const generateDataTransferReport = (path: string, dt: DataTransfer, isSaf
         pushInline(children, `${subpath}.type`, item.type);
         if (item.kind === 'string') {
           const label = `${path}.getData(${JSON.stringify(item.type)})`;
-          const data = dt.getData(item.type);
+          const data = (
+            event === null ||
+            event.type === 'dragstart' ||
+            event.type === 'drop'
+          ) ? dt.getData(item.type) : '';
           if (data === '') {
             pushInline(children, label, data, item.type);
           } else {

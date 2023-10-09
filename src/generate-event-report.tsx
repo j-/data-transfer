@@ -53,7 +53,7 @@ export const generateEventReport = (path: string, event: ClipboardEvent | DragEv
     return flush();
   }
 
-  children.push(generateDataTransferReport(subpath, dt, isSafe));
+  children.push(generateDataTransferReport(subpath, event, dt, isSafe));
 
   return flush();
 };

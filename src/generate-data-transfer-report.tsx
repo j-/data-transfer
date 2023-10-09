@@ -19,13 +19,12 @@ export const generateDataTransferReport = (path: string, event: Event | null, dt
     console.dir(event, dt);
   }
 
-  const pushInline = (children: React.ReactChild[], input: string, output: any, type?: string): void => {
+  const pushInline = (children: React.ReactChild[], input: string, output: any): void => {
     children.push(
       <DefinitionPairInline
         key={`${input}-${output}`}
         label={input}
         value={output}
-        // type={type}
       />
     );
   };
@@ -73,7 +72,7 @@ export const generateDataTransferReport = (path: string, event: Event | null, dt
             event.type === 'drop'
           ) ? dt.getData(item.type) : '';
           if (data === '') {
-            pushInline(children, label, data, item.type);
+            pushInline(children, label, data);
           } else {
             pushMultiline(children, label, data, item.type);
           }

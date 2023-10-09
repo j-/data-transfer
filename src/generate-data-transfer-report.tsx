@@ -69,7 +69,10 @@ export const generateDataTransferReport = (path: string, event: Event | null, dt
           const data = (
             event === null ||
             event.type === 'dragstart' ||
-            event.type === 'drop'
+            event.type === 'drop' ||
+            event.type === 'copy' ||
+            event.type === 'cut' ||
+            event.type === 'paste'
           ) ? dt.getData(item.type) : '';
           if (data === '') {
             pushInline(children, label, data);

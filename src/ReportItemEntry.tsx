@@ -34,7 +34,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
             <DefinitionPairInline label={`${path}.webkitGetAsEntry().name`} value={entry.name} />
             <DefinitionPairInline label={`${path}.webkitGetAsEntry().fullPath`} value={entry.fullPath} />
             <br />
-            <DefinitionPairMultiline
+            <DefinitionPairInline
               label={`getFilesFromEntry(${path}.webkitGetAsEntry())`}
               value={Promise.resolve().then(() => getFilesFromEntry(entry)).then((files) => files.map((file) => file.name))}
             />

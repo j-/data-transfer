@@ -22,8 +22,8 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="container mx-auto my-16">
-      <div className="my-8 flex gap-1 sm:gap-2 text-xl sm:text-3xl">
+    <div className="container mx-auto px-4 sm:my-16">
+      <div className="my-8 flex gap-1 sm:gap-2 text-3xl">
         <img
           src="/favicon.svg"
           className="w-[1em]"

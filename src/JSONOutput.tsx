@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './JSONOutput.module.css';
 
 export interface Props<T = any> {

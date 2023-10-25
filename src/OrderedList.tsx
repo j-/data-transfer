@@ -1,4 +1,3 @@
-import React from 'react';
 import './OrderedList.css';
 
 const OrderedList: React.FC<React.OlHTMLAttributes<HTMLOListElement>> = (props) => (

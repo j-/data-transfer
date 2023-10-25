@@ -1,11 +1,11 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import Support from './Support';
 import { generateReport } from './generate-report';
 
 const App: React.FC = () => {
-  const [report, setReport] = React.useState<React.ReactNode>(null);
+  const [report, setReport] = useState<React.ReactNode>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handler = (e: ClipboardEvent | DragEvent) => {
       e.preventDefault();
       e.stopImmediatePropagation();

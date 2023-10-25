@@ -1,4 +1,4 @@
-import React from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import DefinitionPairInline from './DefinitionPairInline';
 import Report from './Report';
 
@@ -9,13 +9,13 @@ type Props = {
 };
 
 const ReportFileListItem: React.FC<Props> = ({ path, index, file }) => {
-  const [objectURL, setObjectURL] = React.useState('');
+  const [objectURL, setObjectURL] = useState('');
 
-  const handleClickOpen = React.useCallback(() => {
+  const handleClickOpen = useCallback(() => {
     window.open(objectURL, '_blank');
   }, [objectURL]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const url = URL.createObjectURL(file);
     setObjectURL(url);
     return () => URL.revokeObjectURL(url);

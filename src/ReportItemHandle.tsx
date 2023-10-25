@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import DefinitionPairInline from './DefinitionPairInline';
 import Report from './Report';
 
@@ -18,11 +18,11 @@ const ReportItemHandle: React.FC<Props> = ({ path, index, item }) => (
       (() => {
         const handle = item.getAsFileSystemHandle();
         return (
-          <React.Fragment key={`ReportItemHandle-${index}-handle`}>
+          <Fragment key={`ReportItemHandle-${index}-handle`}>
             <DefinitionPairInline label={`${path}.getAsFileSystemHandle()${hellip}`} value={handle} />
             <DefinitionPairInline label={`${path}.getAsFileSystemHandle()${hellip}.kind`} value={handle.then((entry) => entry?.kind)} />
             <DefinitionPairInline label={`${path}.getAsFileSystemHandle()${hellip}.name`} value={handle.then((entry) => entry?.name)} />
-          </React.Fragment>
+          </Fragment>
         );
       })()
     )}

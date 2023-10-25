@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import DefinitionPairInline from './DefinitionPairInline';
 import Report from './Report';
 import ReportFileListItem from './ReportFileListItem';
@@ -26,7 +26,7 @@ const ReportItemFile: React.FC<Props> = ({ path, index, item }) => (
           );
         }
         return (
-          <React.Fragment key={`ReportItemFile-${index}-file-nonnull`}>
+          <Fragment key={`ReportItemFile-${index}-file-nonnull`}>
             <DefinitionPairInline label={`${path}.getAsFile()`} value={file} />
             <ReportFileListItem
               key={`report-item-list-item-${index}-file`}
@@ -34,7 +34,7 @@ const ReportItemFile: React.FC<Props> = ({ path, index, item }) => (
               index={index}
               file={file}
             />
-          </React.Fragment>
+          </Fragment>
         );
       })()
     )}

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 type Props = {
   type?: string;
@@ -6,21 +6,21 @@ type Props = {
 };
 
 const BlobActions: React.FC<Props> = ({ type, value }) => {
-  const [objectURL, setObjectURL] = React.useState('');
+  const [objectURL, setObjectURL] = useState('');
 
-  const blob = React.useMemo(() => {
+  const blob = useMemo(() => {
     return new Blob([value], { type });
   }, [value, type]);
 
-  const handleClickOpen = React.useCallback(() => {
+  const handleClickOpen = useCallback(() => {
     window.open(objectURL, '_blank');
   }, [objectURL]);
 
-  const handleClickCopyPlain = React.useCallback(() => {
+  const handleClickCopyPlain = useCallback(() => {
     navigator.clipboard.writeText(value);
   }, [value]);
 
-  const handleClickCopyType = React.useCallback(() => {
+  const handleClickCopyType = useCallback(() => {
     if (!type) return;
     navigator.clipboard.write(
       [new ClipboardItem({
@@ -29,7 +29,7 @@ const BlobActions: React.FC<Props> = ({ type, value }) => {
     );
   }, [blob, value, type]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const url = URL.createObjectURL(blob);
     setObjectURL(url);
     return () => URL.revokeObjectURL(url);

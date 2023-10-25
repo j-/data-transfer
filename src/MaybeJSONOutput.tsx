@@ -1,6 +1,6 @@
 import isPromise from 'is-promise';
-import JSONOutput from './JSONOutput';
 import { useEffect, useState } from 'react';
+import JSONOutput from './JSONOutput';
 
 export type MaybeJSONOutputProps<T> = {
   value: T | Promise<T> | PromiseLike<T>;

@@ -1,6 +1,5 @@
-import React from 'react';
+import { Fragment } from 'react';
 import DefinitionPairInline from './DefinitionPairInline';
-import DefinitionPairMultiline from './DefinitionPairMultiline';
 import { getFilesFromEntry } from './get-files-from-entry';
 import Report from './Report';
 
@@ -27,7 +26,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
           );
         }
         return (
-          <React.Fragment key={`ReportItemEntry-${index}-entry-nonnull`}>
+          <Fragment key={`ReportItemEntry-${index}-entry-nonnull`}>
             <DefinitionPairInline label={`${path}.webkitGetAsEntry()`} value={entry} />
             <DefinitionPairInline label={`${path}.webkitGetAsEntry().isFile`} value={entry.isFile} />
             <DefinitionPairInline label={`${path}.webkitGetAsEntry().isDirectory`} value={entry.isDirectory} />
@@ -38,7 +37,7 @@ const ReportItemEntry: React.FC<Props> = ({ path, index, item }) => (
               label={`getFilesFromEntry(${path}.webkitGetAsEntry())`}
               value={Promise.resolve().then(() => getFilesFromEntry(entry)).then((files) => files.map((file) => file.name))}
             />
-          </React.Fragment>
+          </Fragment>
         );
       })()
     )}

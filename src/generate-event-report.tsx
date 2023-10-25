@@ -1,4 +1,3 @@
-import React from 'react';
 import DefinitionPairInline from './DefinitionPairInline';
 import { isClipboardEvent, isDragEvent, isSafeEvent } from './is-event';
 import { generateDataTransferReport } from './generate-data-transfer-report';

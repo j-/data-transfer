@@ -1,4 +1,3 @@
-import React from 'react';
 import DefinitionPairInline from './DefinitionPairInline';
 import ReportFileList from './ReportFileList';
 import ReportItemHandle from './ReportItemHandle';

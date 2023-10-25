@@ -1,4 +1,3 @@
-import React from 'react';
 import './ListItem.css';
 
 const ListItem: React.FC<React.LiHTMLAttributes<HTMLLIElement>> = (props) => (

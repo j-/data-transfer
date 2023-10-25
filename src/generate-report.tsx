@@ -1,4 +1,3 @@
-import React from 'react';
 import Report from './Report';
 import { isEvent } from './is-event';
 import { generateEventReport } from './generate-event-report';

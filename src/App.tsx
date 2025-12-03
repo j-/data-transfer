@@ -6,18 +6,19 @@ const App: React.FC = () => {
   const [report, setReport] = useState<React.ReactNode>(null);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     const handler = (e: ClipboardEvent | DragEvent) => {
       e.preventDefault();
       e.stopImmediatePropagation();
       setReport(generateReport(e));
     };
-    window.addEventListener('dragover', handler);
-    window.addEventListener('drop', handler);
-    document.addEventListener('paste', handler);
+    const options: AddEventListenerOptions = { signal, capture: true };
+    window.addEventListener('dragover', handler, options);
+    window.addEventListener('drop', handler, options);
+    document.addEventListener('paste', handler, options);
     return () => {
-      window.removeEventListener('dragover', handler);
-      window.removeEventListener('drop', handler);
-      document.removeEventListener('paste', handler);
+      controller.abort();
     };
   }, []);
 
